@@ -40,7 +40,7 @@ void ofApp::setup(){
     zones[0].addVisual(visual1, ofColor(0,0,255));
 
     //ZONE 1 SETUP
-    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
+    zones[1].setup("zone2", 300, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
     //ZONE 1 UI
     ofxAVUIEmpty *empty1 = new ofxAVUIEmpty("Empty");
     zones[1].addUI(empty1, 50);
@@ -60,7 +60,7 @@ void ofApp::setup(){
     zones[1].addVisual(visual2, ofColor(255,0,0));
 
     //ZONE 2 SETUP
-    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), "bass.wav", bufferSize);
+    zones[2].setup("zone3", 500, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), "bass.wav", bufferSize);
     //ZONE 2 UI
     ofxAVUIXYPad *pad3 = new ofxAVUIXYPad("Pad", "triggerPlay", "triggerPlay", "pitch", "volume");
     zones[2].addUI(pad3, 100);
@@ -88,19 +88,20 @@ void ofApp::setup(){
     zones[2].addVisual(visual3, ofColor(0,255,0, 196));
 
     //ZONE 3 SETUP
-    zones[3].setup("zone4", 750, 100, 50, ofColor(100,200,100, 150), ofColor(0,255,255, 255), "bass.wav", bufferSize);
+    zones[3].setup("zone4", 725, 100, 50, ofColor(100,200,100, 150), ofColor(0,255,255, 255), "bass.wav", bufferSize);
     //ZONE 3 UI
+    //
+    //example of parameter addition for routing ouside of the zone
     zones[3].addParameterBool("trigger4", false);
     zones[3].addParameterFloat("pitch4", 0,1,0.5);
     zones[3].addParameterFloat("volume4", 0,1,0.5);
     ofxAVUIXYPad *pad11 = new ofxAVUIXYPad("test", "trigger4", "trigger4", "pitch4", "volume4");
     zones[3].addUI(pad11, 50);
+    zones[3].addParameterBool("trigger5", false);
+    zones[3].addParameterFloat("pitch5", 0,1,0.5);
+    zones[3].addParameterFloat("volume5", 0,1,0.5);
     ofxAVUIXYPad *pad12 = new ofxAVUIXYPad("test", "trigger5", "trigger5", "pitch5", "volume5");
     zones[3].addUI(pad12, 50);
-    ofxAVUIXYPad *pad13 = new ofxAVUIXYPad("test", "trigger6", "trigger6", "pitch6", "volume6");
-    zones[3].addUI(pad13, 50);
-    ofxAVUIXYPad *pad14 = new ofxAVUIXYPad("test", "trigger7", "trigger7", "pitch7", "volume7");
-    zones[3].addUI(pad14, 50);
 
 
     //START SOUND
