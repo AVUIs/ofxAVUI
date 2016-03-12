@@ -58,6 +58,8 @@ public:
     void addUI(ofxAVUIBase * _element, float _pixelHeight); //UI elements are stacked top->down
     void addSoundFx(ofxAVUISoundFxBase * _fxElement);
     void addVisual(ofxAVUIVisualBase * _element, ofColor visColor);
+    void addParameterFloat(string _paramName, float _min, float _max, float _value);
+    void addParameterBool(string _paramName, bool _val);
     void syncParameters();    //sync UI with parameters
     ofParameter<float> getParamValueFloat(string _param);
     ofParameter<bool> getParamValueBool(string _param);

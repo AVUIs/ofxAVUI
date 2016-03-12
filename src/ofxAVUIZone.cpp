@@ -133,6 +133,17 @@ double ofxAVUIZone::getOutput(int channel) {
     return player.outputs[channel];
 }
 
+void ofxAVUIZone::addParameterFloat(string _paramName, float _min, float _max, float _value) {
+    ofParameter<float>  param;
+    param.set(_paramName, _value, _min, _max);
+    soundProperties.add(param);
+}
+
+void ofxAVUIZone::addParameterBool(string _paramName, bool _val) {
+    ofParameter<bool>  param;
+    param.set(_paramName, _val);
+    soundProperties.add(param);
+}
 
 void ofxAVUIZone::addUI(ofxAVUIBase * _element, float _pixelHeight) {
     uis.push_back(_element);

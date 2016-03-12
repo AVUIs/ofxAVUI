@@ -87,6 +87,22 @@ void ofApp::setup(){
     ofxAVUIVisualCircles *visual3 = new ofxAVUIVisualCircles(10);
     zones[2].addVisual(visual3, ofColor(0,255,0, 196));
 
+    //ZONE 3 SETUP
+    zones[3].setup("zone4", 750, 100, 50, ofColor(100,200,100, 150), ofColor(0,255,255, 255), "bass.wav", bufferSize);
+    //ZONE 3 UI
+    zones[3].addParameterBool("trigger4", false);
+    zones[3].addParameterFloat("pitch4", 0,1,0.5);
+    zones[3].addParameterFloat("volume4", 0,1,0.5);
+    ofxAVUIXYPad *pad11 = new ofxAVUIXYPad("test", "trigger4", "trigger4", "pitch4", "volume4");
+    zones[3].addUI(pad11, 50);
+    ofxAVUIXYPad *pad12 = new ofxAVUIXYPad("test", "trigger5", "trigger5", "pitch5", "volume5");
+    zones[3].addUI(pad12, 50);
+    ofxAVUIXYPad *pad13 = new ofxAVUIXYPad("test", "trigger6", "trigger6", "pitch6", "volume6");
+    zones[3].addUI(pad13, 50);
+    ofxAVUIXYPad *pad14 = new ofxAVUIXYPad("test", "trigger7", "trigger7", "pitch7", "volume7");
+    zones[3].addUI(pad14, 50);
+
+
     //START SOUND
     ofSoundStreamSetup(2,2,this, sampleRate, bufferSize, 4); /* this has to happen at the end of setup*/
     
@@ -109,7 +125,7 @@ void ofApp::draw(){
     ofDrawLine(0, coordY, ofGetWidth(), coordY);
 
     //DRAW ZONES
-    for (int k=0; k<3; k++) {
+    for (int k=0; k<4; k++) {
         zones[k].draw();
     }
     

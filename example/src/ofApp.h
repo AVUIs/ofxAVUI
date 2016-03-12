@@ -35,6 +35,6 @@ class ofApp : public ofBaseApp{
         int		sampleRate;
 
     //ofxAVUI
-    ofxAVUIZone             zones[3];
+    ofxAVUIZone             zones[4];
     
 };
