@@ -32,8 +32,8 @@ private:
     float totalAmplitude;
     
     
-    ofFbo           visualFbo;
-    ofxSyphonServer syphonOut;
+//    ofFbo           visualFbo;
+//    ofxSyphonServer syphonOut;
 };
 
 #endif /* defined(__AVUIApp2__ofxAVUIVisualLissajous__) */

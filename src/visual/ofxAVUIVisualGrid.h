@@ -21,8 +21,8 @@ public:
     
 private:
     
-    ofFbo           visualFbo;
-    ofxSyphonServer syphonOut;
+//    ofFbo           visualFbo;
+//    ofxSyphonServer syphonOut;
     int numSquaresX, numSquaresY;
 };
 

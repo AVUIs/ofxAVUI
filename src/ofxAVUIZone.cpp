@@ -83,19 +83,28 @@ void ofxAVUIZone::loopingChanged(bool & _looping){
 void ofxAVUIZone::update() {
 }
 
+//void ofxAVUIZone::drawVisuals() {
+//    if (!synced) syncParameters();
+//    FBO.begin();
+//        ofClear(255,255,255, 0);
+//        ofPushStyle();
+//        for(std::size_t i = 0; i < visuals.size(); i++){
+//            if (loaded) visuals[i]->draw(player.buffer, player.amplitude);
+//        }
+//        ofPopStyle();
+//    FBO.end();
+//    FBO.draw(shape.x, shape.y);
+//}
+
 void ofxAVUIZone::draw() {
     if (!synced) syncParameters();
+    ofPushStyle();
+    ofSetLineWidth(2);
+    for(std::size_t i = 0; i < uis.size(); i++){
+        uis[i]->draw();
+    }
     FBO.begin();
         ofClear(255,255,255, 0);
-        ofPushStyle();
-        ofSetLineWidth(2);
-        int topDist = 0;
-        for(std::size_t i = 0; i < uis.size(); i++){
-            ofTranslate(0, topDist);
-            uis[i]->draw();
-            ofTranslate(0, -topDist);
-            topDist+=uis[i]->getPosition().height;
-        }
         for(std::size_t i = 0; i < visuals.size(); i++){
             if (loaded) visuals[i]->draw(player.buffer, player.amplitude);
         }

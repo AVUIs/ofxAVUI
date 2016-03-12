@@ -43,14 +43,16 @@ void ofxAVUIRangeSlider::draw(){
     if (synced) update();
     ofPushStyle();
     ofSetColor(bgColor);
-    ofDrawRectangle(0,0,shape.width,shape.height);
+//    ofDrawRectangle(0,0,shape.width,shape.height);
+    ofDrawRectangle(shape.x,shape.y,shape.width,shape.height);
     ofSetColor(fgColor);
     ofNoFill();
     drawContour();
     drawTitle();
     ofFill();
     ofSetColor(fgColor, 196);
-    ofDrawRectangle(x1-shape.x, 0, x2-x1, shape.height);  //cursor
+//    ofDrawRectangle(x1-shape.x, 0, x2-x1, shape.height);  //cursor
+    ofDrawRectangle(x1, shape.y, x2-x1, shape.height);  //cursor
     ofPopStyle();
 }
 

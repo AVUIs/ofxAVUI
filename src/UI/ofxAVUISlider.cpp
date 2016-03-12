@@ -48,13 +48,15 @@ void ofxAVUISlider::draw(){
     if (synced) update();
     ofPushStyle();
     ofSetColor(bgColor);
-    ofDrawRectangle(0,0,shape.width,shape.height);
+//    ofDrawRectangle(0,0,shape.width,shape.height);
+    ofDrawRectangle(shape.x,shape.y,shape.width,shape.height);
     ofSetColor(fgColor);
     ofNoFill();
     drawContour();
     drawTitle();
-    ofDrawLine(x-shape.x, 0, x-shape.x, shape.height);  //cursor
-    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(x - shape.x, shape.height/2,10); //draw toggle
+//    ofDrawLine(x-shape.x, 0, x-shape.x, shape.height);  //cursor
+    ofDrawLine(x, shape.y, x, shape.y+shape.height);  //cursor
+    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(x, shape.y + shape.height/2,10); //draw toggle
     ofPopStyle();
 }
 

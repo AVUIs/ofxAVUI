@@ -19,7 +19,8 @@ ofxAVUIButton::~ofxAVUIButton(){
 void ofxAVUIButton::draw(){
     ofPushStyle();
     ofSetColor(bgColor);
-    ofDrawRectangle(0,0,shape.width,shape.height);
+//    ofDrawRectangle(0,0,shape.width,shape.height);
+    ofDrawRectangle(shape.x,shape.y,shape.width,shape.height);
     ofSetColor(fgColor);
     drawContour();
     drawTitle();

@@ -59,14 +59,18 @@ void ofxAVUIXYPad::draw(){
     if (synced) update();
     ofPushStyle();
     ofSetColor(bgColor);
-    ofDrawRectangle(0,0,shape.width,shape.height);
+//    ofDrawRectangle(0,0,shape.width,shape.height);
+    ofDrawRectangle(shape.x,shape.y,shape.width,shape.height);
     ofSetColor(fgColor);
     ofNoFill();
     drawContour();
     drawTitle();
-    ofDrawLine(location.x-shape.x-5, location.y-shape.y, location.x-shape.x+5, location.y-shape.y);
-    ofDrawLine(location.x-shape.x, location.y-shape.y-5, location.x-shape.x, location.y-shape.y+5);
-    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(location.x-shape.x,location.y-shape.y,10);   //draw toggle, not trigger
+//    ofDrawLine(location.x-shape.x-5, location.y-shape.y, location.x-shape.x+5, location.y-shape.y); //subtract shape.x and shape.y bcos we are in FBO
+//    ofDrawLine(location.x-shape.x, location.y-shape.y-5, location.x-shape.x, location.y-shape.y+5);
+//    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(location.x-shape.x,location.y-shape.y,10);   //draw toggle, not trigger
+    ofDrawLine(location.x-5, location.y, location.x+5, location.y); //subtract shape.x and shape.y bcos we are in FBO
+    ofDrawLine(location.x, location.y-5, location.x, location.y+5);
+    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(location.x,location.y,10);   //draw toggle, not trigger
     ofPopStyle();
 }
 

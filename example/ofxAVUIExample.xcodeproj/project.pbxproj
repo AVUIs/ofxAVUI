@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EA775CF1C947121007EB610 /* ofxAVUIRangeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EA775CD1C947121007EB610 /* ofxAVUIRangeSlider.cpp */; };
+		3EA775D81C948E07007EB610 /* ofxAVUIVisualGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EA775D41C948E07007EB610 /* ofxAVUIVisualGrid.cpp */; };
+		3EA775D91C948E07007EB610 /* ofxAVUIVisualLissajous.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EA775D61C948E07007EB610 /* ofxAVUIVisualLissajous.cpp */; };
 		3EBC7A6B1C8450B10074E549 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC7A581C8450B10074E549 /* fft.cpp */; };
 		3EBC7A6C1C8450B10074E549 /* maxiAtoms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC7A5A1C8450B10074E549 /* maxiAtoms.cpp */; };
 		3EBC7A6D1C8450B10074E549 /* maxiBark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC7A5C1C8450B10074E549 /* maxiBark.cpp */; };
@@ -65,6 +68,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3EA775CD1C947121007EB610 /* ofxAVUIRangeSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIRangeSlider.cpp; sourceTree = "<group>"; };
+		3EA775CE1C947121007EB610 /* ofxAVUIRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIRangeSlider.h; sourceTree = "<group>"; };
+		3EA775D41C948E07007EB610 /* ofxAVUIVisualGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualGrid.cpp; sourceTree = "<group>"; };
+		3EA775D51C948E07007EB610 /* ofxAVUIVisualGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualGrid.h; sourceTree = "<group>"; };
+		3EA775D61C948E07007EB610 /* ofxAVUIVisualLissajous.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualLissajous.cpp; sourceTree = "<group>"; };
+		3EA775D71C948E07007EB610 /* ofxAVUIVisualLissajous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualLissajous.h; sourceTree = "<group>"; };
 		3EBC7A561C8450B10074E549 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		3EBC7A581C8450B10074E549 /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
 		3EBC7A591C8450B10074E549 /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
@@ -228,6 +237,8 @@
 				3ED152A21C8A006400591B31 /* ofxAVUIEmpty.h */,
 				3ED152A31C8A006400591B31 /* ofxAVUISlider.cpp */,
 				3ED152A41C8A006400591B31 /* ofxAVUISlider.h */,
+				3EA775CD1C947121007EB610 /* ofxAVUIRangeSlider.cpp */,
+				3EA775CE1C947121007EB610 /* ofxAVUIRangeSlider.h */,
 				3ED152A51C8A006400591B31 /* ofxAVUIToggle.cpp */,
 				3ED152A61C8A006400591B31 /* ofxAVUIToggle.h */,
 				3ED152A71C8A006400591B31 /* ofxAVUIXYPad.cpp */,
@@ -247,6 +258,10 @@
 				BCBC337F1C8E1CD1001A035E /* ofxAVUIVisualBars.h */,
 				3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */,
 				3ED152AD1C8A006400591B31 /* ofxAVUIVisualWave.h */,
+				3EA775D41C948E07007EB610 /* ofxAVUIVisualGrid.cpp */,
+				3EA775D51C948E07007EB610 /* ofxAVUIVisualGrid.h */,
+				3EA775D61C948E07007EB610 /* ofxAVUIVisualLissajous.cpp */,
+				3EA775D71C948E07007EB610 /* ofxAVUIVisualLissajous.h */,
 			);
 			path = visual;
 			sourceTree = "<group>";
@@ -400,15 +415,18 @@
 				3ED152B51C8A006400591B31 /* ofxAVUIVisualWave.cpp in Sources */,
 				3ED152901C89FFE300591B31 /* ofxAVUISoundFxBase.cpp in Sources */,
 				BCBC33801C8E1CD1001A035E /* ofxAVUIVisualBars.cpp in Sources */,
+				3EA775D91C948E07007EB610 /* ofxAVUIVisualLissajous.cpp in Sources */,
 				3EBC7A6C1C8450B10074E549 /* maxiAtoms.cpp in Sources */,
 				3EBC7A6D1C8450B10074E549 /* maxiBark.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				3EA775CF1C947121007EB610 /* ofxAVUIRangeSlider.cpp in Sources */,
 				3EBC7A711C8450B10074E549 /* maximilian.cpp in Sources */,
 				3EBC7A8F1C84559E0074E549 /* ofxAVUIZone.cpp in Sources */,
 				3ED152B31C8A006400591B31 /* ofxAVUIXYPad.cpp in Sources */,
 				3EBC7A701C8450B10074E549 /* maxiMFCC.cpp in Sources */,
 				3ED152AE1C8A006400591B31 /* ofxAVUIBase.cpp in Sources */,
 				3EBC7A6F1C8450B10074E549 /* maxiGrains.cpp in Sources */,
+				3EA775D81C948E07007EB610 /* ofxAVUIVisualGrid.cpp in Sources */,
 				3ED152B01C8A006400591B31 /* ofxAVUIEmpty.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 			);

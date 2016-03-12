@@ -10,7 +10,6 @@
 
 #include "ofMain.h"
 
-
 class ofxAVUISoundFxBase {
 
 public:

@@ -19,14 +19,16 @@ ofxAVUIToggle::~ofxAVUIToggle(){
 void ofxAVUIToggle::draw(){
     ofPushStyle();
     ofSetColor(bgColor);
-    ofDrawRectangle(0,0,shape.width,shape.height);
+//    ofDrawRectangle(0,0,shape.width,shape.height);
+    ofDrawRectangle(shape.x,shape.y,shape.width,shape.height);
     ofSetColor(fgColor);
     drawContour();
     drawTitle();
     ofSetColor(fgColor, 196);
     ofEnableAlphaBlending();
     (soundProperties->getBool(param1))? ofFill() : ofNoFill();
-    ofDrawCircle(shape.width/2, shape.height /2, shape.height /4) ;
+//    ofDrawCircle(shape.width/2, shape.height /2, shape.height /4) ;
+    ofDrawCircle(shape.x + shape.width/2, shape.y + shape.height /2, shape.height /4) ;
     ofDisableAlphaBlending();
     ofPopStyle();
 }
