@@ -30,7 +30,7 @@ public:
     void update();
     void draw();
 
-private:
+protected:
     float            savedX, savedY;
     float            savedHorizVal, savedVertVal;
     ofRectangle      location;
