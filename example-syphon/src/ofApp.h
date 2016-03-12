@@ -8,6 +8,7 @@
 #include "ofMain.h"
 #include "ofxMaxim.h"
 #include "ofxAVUI.h"
+#include "ofxSyphon.h"
 
 class ofApp : public ofBaseApp{
 
@@ -36,5 +37,8 @@ class ofApp : public ofBaseApp{
 
     //ofxAVUI
     ofxAVUIZone             zones[2];
+
+    //syphon
+    ofxSyphonServer syphonOut[2];
 
 };

@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "ofMain.h"
 #include "ofxAVUIVisualBase.h"
-#include "ofxSyphon.h"
+//#include "ofxSyphon.h"
 
 #define DEFAULT_SPEED 0.025
 
@@ -32,9 +32,6 @@ private:
     float smooth;
     float totalAmplitude;
     
-    
-//    ofFbo           visualFbo;
-//    ofxSyphonServer syphonOut;
 };
 
 #endif /* defined(__AVUIApp2__ofxAVUIVisualLissajous__) */

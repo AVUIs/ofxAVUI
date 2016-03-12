@@ -41,6 +41,10 @@ void ofApp::setup(){
     ofxAVUIVisualGrid *visual2 = new ofxAVUIVisualGrid();
     zones[1].addVisual(visual2, ofColor(255,255,255));
     
+    
+    syphonOut[0].setName("ofxAVUIVisual-1");
+    syphonOut[1].setName("ofxAVUIVisual-2");
+
     //START SOUND
     ofSoundStreamSetup(2,2,this, sampleRate, bufferSize, 4); /* this has to happen at the end of setup*/
     
@@ -64,6 +68,7 @@ void ofApp::draw(){
 
     for(int i = 0; i < 2; i++) {
         zones[i].draw();
+        syphonOut[i].publishTexture(&zones[i].getVisualTexture());
     }
 
 }

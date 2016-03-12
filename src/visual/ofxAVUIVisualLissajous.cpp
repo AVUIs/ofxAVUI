@@ -10,8 +10,6 @@
 
 ofxAVUIVisualLissajous::ofxAVUIVisualLissajous()
 {
-//    syphonOut.setName("ofxAVUIVisual");
-//    visualFbo.allocate(shape.width, shape.height);
     
     pointCount = 500;
     
@@ -25,7 +23,6 @@ ofxAVUIVisualLissajous::ofxAVUIVisualLissajous()
 void ofxAVUIVisualLissajous::draw(float * buffer, float amplitude)
 {
     
-//    visualFbo.begin();
     ofClear(0,0,0);
     
     ofPushStyle();
@@ -65,8 +62,5 @@ void ofxAVUIVisualLissajous::draw(float * buffer, float amplitude)
     
     offset+= DEFAULT_SPEED + totalAmplitude * 0.1;
     ofPopStyle();
-    
-//    visualFbo.end();
-//    visualFbo.draw(0,0);
-//    syphonOut.publishTexture(&visualFbo.getTexture());
+
 }

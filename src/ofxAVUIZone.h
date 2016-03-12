@@ -39,10 +39,6 @@ public:
     void update();
     void draw();
     
-    //sound
-    void play(int pos);
-    double getOutput(int channel);
-
     //event handlers for parameters
 //    void nullChanged(char &_null);    //debug
     void pitchChanged(float &_pitch);
@@ -50,17 +46,19 @@ public:
     void loopingChanged(bool &_looping);
     void triggerReceived(bool &_trigger);
     void toggleReceived(bool &_toggle);
-    void frequencyChanged(float &_frequency);
-    void resonanceChanged(float &_resonance);
-    void filterOnChanged(bool &_filterOn);
-    void sizeChanged(float &_size);
-    void feedbackChanged(float &_feedback);
-    void delayOnChanged(bool &_delayOn);
+
+    //sound
+    void play(int pos);
+    void addSoundFx(ofxAVUISoundFxBase * _fxElement);
+    double getOutput(int channel);
 
     //UI
     void addUI(ofxAVUIBase * _element, float _pixelHeight); //UI elements are stacked top->down
-    void addSoundFx(ofxAVUISoundFxBase * _fxElement);
+
     void addVisual(ofxAVUIVisualBase * _element, ofColor visColor);
+    ofTexture &getVisualTexture();
+    
+    //parameters
     void addParameterFloat(string _paramName, float _min, float _max, float _value);
     void addParameterBool(string _paramName, bool _val);
     void syncParameters();    //sync UI with parameters

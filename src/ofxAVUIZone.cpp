@@ -113,6 +113,10 @@ void ofxAVUIZone::draw() {
     FBO.draw(shape.x, shape.y);
 }
 
+ofTexture &ofxAVUIZone::getVisualTexture() {
+    return FBO.getTexture();
+}
+
 void ofxAVUIZone::syncParameters() {
     for(std::size_t i = 0; i < uis.size(); i++){
         uis[i]->update();
@@ -122,7 +126,7 @@ void ofxAVUIZone::syncParameters() {
     }
 
     FBO.allocate(shape.width, shape.height, GL_RGBA);    //doing this here so we do it just once
-
+    FBO.setUseTexture(true);
     synced = true;
 }
 

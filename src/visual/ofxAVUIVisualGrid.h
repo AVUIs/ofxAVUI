@@ -11,7 +11,7 @@
 
 #include "ofMain.h"
 #include "ofxAVUIVisualBase.h"
-#include "ofxSyphon.h"
+//#include "ofxSyphon.h"
 
 class ofxAVUIVisualGrid : public ofxAVUIVisualBase {
 public:
@@ -21,9 +21,6 @@ public:
     void draw(float *buffer, float amplitude);
     
 private:
-    
-//    ofFbo           visualFbo;
-//    ofxSyphonServer syphonOut;
     int numSquaresX, numSquaresY;
 };
 
