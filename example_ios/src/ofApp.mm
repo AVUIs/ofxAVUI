@@ -1,96 +1,118 @@
 #include "ofApp.h"
+#include "ofxMaxim.h"
+
+
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    //ENVIRONMENT AND MAXIMILIAN
+    ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+    ofSetFrameRate(60);
+    ofSetVerticalSync(true);
+    ofEnableAlphaBlending();
+    ofEnableSmoothing();
+    ofBackground(0,0,0);
+    sampleRate 	= 44100; /* Audio sampling rate */
+    bufferSize	= 512; /* Audio buffer size */
+    ofxMaxiSettings::setup(sampleRate, 2, bufferSize);
+    //hack for OF not adjusting to iPad landscape mode correctly
+    if(ofxiOSGetGLView().frame.origin.x != 0 ||
+        ofxiOSGetGLView().frame.size.width != [[UIScreen mainScreen] bounds].size.width) {
+        ofxiOSGetGLView().frame = CGRectMake(0,0,[[UIScreen mainScreen] bounds].size.width,[[UIScreen mainScreen] bounds].size.height);
+    }
+    
+    //ZONE 0 SETUP
+    //parameters: name, x, y, width, background color, foreground color, sound filename, sound buffer size
+    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
+    //ZONE 0 UI
+    //pad parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name, y parameter name
+    ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", "triggerPlay",  "toggleLooping", "volume", "pitch");
+    //pad additional parameter: height
+    zones[0].addUI(pad1, 150);
+    //toggle parameters: caption, toggle (double tap) parameter name
+    ofxAVUIToggle *toggle1 = new ofxAVUIToggle("Looping", "toggleLooping");
+    zones[0].addUI(toggle1, 100);
+    //button parameters: caption, trigger (single tap) parameter name
+    ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", "triggerPlay");
+    zones[0].addUI(button1, 100);
+    //ZONE 0 AUDIO EFFECTS
+    //empty
+    //ZONE 0 VISUALS
+    ofxAVUIVisualWave *visual1 = new ofxAVUIVisualWave();
+    zones[0].addVisual(visual1, ofColor(0,0,255));
 
-	// IMPORTANT!!! if your sound doesn't work in the simulator - read this post - which requires you set the output stream to 24bit 
-	//	http://www.cocos2d-iphone.org/forum/topic/4159
+    //ZONE 1 SETUP
+    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
+    //ZONE 1 UI
+    ofxAVUIEmpty *empty1 = new ofxAVUIEmpty("Empty");
+    zones[1].addUI(empty1, 50);
+    ofxAVUIXYPad *pad2 = new ofxAVUIXYPad("Pad", "triggerPlay", "triggerPlay", "pitch", "volume");
+    zones[1].addUI(pad2, 100);
+    ofxAVUIEmpty *empty2 = new ofxAVUIEmpty("");
+    zones[1].addUI(empty2, 75);
+    //slider parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name
+    ofxAVUISlider *slider1 = new ofxAVUISlider("Slider", "triggerPlay", "toggleLooping", "pitch");
+    zones[1].addUI(slider1, 100);
+    ofxAVUIToggle *toggle2 = new ofxAVUIToggle("Looping", "toggleLooping");
+    zones[1].addUI(toggle2, 50);
+    //ZONE 1 AUDIO EFFECTS
+    //empty
+    //ZONE 1 VISUALS
+    ofxAVUIVisualBars *visual2 = new ofxAVUIVisualBars(5);
+    zones[1].addVisual(visual2, ofColor(255,0,0));
 
-	ofSetOrientation(OF_ORIENTATION_90_RIGHT);//Set iOS to Orientation Landscape Right
+    //ZONE 2 SETUP
+    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), "bass.wav", bufferSize);
+    //ZONE 2 UI
+    ofxAVUIXYPad *pad3 = new ofxAVUIXYPad("Pad", "triggerPlay", "triggerPlay", "pitch", "volume");
+    zones[2].addUI(pad3, 100);
+    ofxAVUIXYPad *pad4 = new ofxAVUIXYPad("Filter Pad", "filterTrigger", "filterToggle", "frequency", "resonance");
+    zones[2].addUI(pad4, 100);
+    ofxAVUIToggle *toggle3 = new ofxAVUIToggle("Filter Toggle", "filterToggle");
+    zones[2].addUI(toggle3, 50);
+    ofxAVUIXYPad *pad5 = new ofxAVUIXYPad("Delay Pad", "delayTrigger", "delayToggle", "size", "feedback");
+    zones[2].addUI(pad5, 100);
+    ofxAVUIToggle *toggle4 = new ofxAVUIToggle("Delay Toggle", "delayToggle");
+    zones[2].addUI(toggle4, 50);
+    //ZONE 2 AUDIO EFFECTS
+    ofxAVUISoundFxFilter *filter1 = new ofxAVUISoundFxFilter();
+    //sound fx parameters:
+    //- filter enabled toggle name (will be linked to any toggle UI with same name), start value
+    //- 1st parameter float name (will be linked to any toggle UI with same name), min value, max value, start value
+    //- 2nd parameter float name (will be linked to any toggle UI with same name), min value, max value, start value
+    filter1->setup("filterToggle", false, "frequency", 200, 20000, 200, "resonance", 0, 100, 10);
+    zones[2].addSoundFx(filter1);
+    ofxAVUISoundFxDelay *delay1 = new ofxAVUISoundFxDelay();
+    delay1->setup("delayToggle", false, "size", 10000, 40000, 20000, "feedback", 0.5, 1.0, 0.75);
+    zones[2].addSoundFx(delay1);
+    //ZONE 2 VISUALS
+    ofxAVUIVisualCircles *visual3 = new ofxAVUIVisualCircles(10);
+    zones[2].addVisual(visual3, ofColor(0,255,0, 196));
 
-	ofBackground(255, 255, 255);
-
-	// 2 output channels,
-	// 0 input channels
-	// 44100 samples per second
-	// 512 samples per buffer
-	// 4 num buffers (latency)
-
-	sampleRate = 44100;
-	phase = 0;
-	phaseAdder = 0.0f;
-	phaseAdderTarget = 0.0;
-	volume = 0.15f;
-	pan = 0.5;
-	bNoise = false;
-	
-	//for some reason on the iphone simulator 256 doesn't work - it comes in as 512!
-	//so we do 512 - otherwise we crash
-	initialBufferSize = 512;
-	
-	lAudio = new float[initialBufferSize];
-	rAudio = new float[initialBufferSize];
-	
-	memset(lAudio, 0, initialBufferSize * sizeof(float));
-	memset(rAudio, 0, initialBufferSize * sizeof(float));
-	
-	//we do this because we don't have a mouse move function to work with:
-	targetFrequency = 444.0;
-	phaseAdderTarget = (targetFrequency / (float)sampleRate) * TWO_PI;
-	
-	// This call will allow your app's sound to mix with any others that are creating sound
-	// in the background (e.g. the Music app). It should be done before the call to
-	// ofSoundStreamSetup. It sets a category of "play and record" with the "mix with others"
-	// option turned on. There are many other combinations of categories & options that might
-	// suit your app's needs better. See Apple's guide on "Configuring Your Audio Session".
-	
-	// ofxiOSSoundStream::setMixWithOtherApps(true);
-	
-	ofSoundStreamSetup(2, 0, this, sampleRate, initialBufferSize, 4);
-	ofSetFrameRate(60);
+    //START SOUND
+    ofSoundStreamSetup(2,2,this, sampleRate, bufferSize, 4); /* this has to happen at the end of setup*/
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	float boxW = 200.0;
-	float boxH = boxW * 0.75;
-	
-	float topY = 30;
-	float leftX = 30;
-	float rightX = leftX + boxW + 20;
+    //get individual parameters and use them outside of the zone, together with their min/max limits
+    ofParameter<float> x = zones[0].getParamValueFloat("volume");
+    int coordX = ofMap(x, x.getMin(), x.getMax(), 0, ofGetWidth());
+    ofParameter<float> y = zones[0].getParamValueFloat("pitch");
+    int coordY = ofMap(y, y.getMin(), y.getMax(), 0, ofGetHeight());
+    ofDrawLine(coordX, 0, coordX, ofGetHeight());
+    ofDrawLine(0, coordY, ofGetWidth(), coordY);
 
-	// draw the left:
-	ofSetHexColor(0x333333);
-	ofDrawRectangle(leftX, topY, boxW, boxH);
-	ofSetHexColor(0xFFFFFF);
-	for(int i = 0; i < initialBufferSize; i++){
-		float x = ofMap(i, 0, initialBufferSize, 0, boxW, true);
-		ofDrawLine(leftX + x,topY + boxH / 2,leftX + x, topY + boxH / 2 + lAudio[i] * boxH * 0.5);
-	}
-
-	// draw the right:
-	ofSetHexColor(0x333333);
-	ofDrawRectangle(rightX, topY, boxW, boxH);
-	ofSetHexColor(0xFFFFFF);
-	for(int i = 0; i < initialBufferSize; i++){
-		float x = ofMap(i, 0, initialBufferSize, 0, boxW, true);	
-		ofDrawLine(rightX + x, topY + boxH / 2, rightX + x, topY + boxH / 2 + rAudio[i] * boxH * 0.5);
-	}
-
-	ofSetHexColor(0x333333);
-	char reportString[255];
-	sprintf(reportString, "volume: (%f) \npan: (%f)\nsynthesis: %s", volume, pan, bNoise ? "noise" : "sine wave");
-	sprintf(reportString, "%s (%fhz)", reportString, targetFrequency);
-
-	ofDrawBitmapString(reportString, leftX, topY + boxH + 20);
-
+    //DRAW ZONES
+    for (int k=0; k<3; k++) {
+        zones[k].draw();
+    }
 }
 
 //--------------------------------------------------------------
@@ -98,72 +120,56 @@ void ofApp::exit(){
     
 }
 
-//--------------------------------------------------------------
-void ofApp::audioOut(float * output, int bufferSize, int nChannels){
-			
-	if( initialBufferSize < bufferSize ){
-		ofLog(OF_LOG_ERROR, "your buffer size was set to %i - but the stream needs a buffer size of %i", initialBufferSize, bufferSize);
-		return;
-	}	
-
-	float leftScale = 1 - pan;
-	float rightScale = pan;
-
-	// sin (n) seems to have trouble when n is very large, so we
-	// keep phase in the range of 0-TWO_PI like this:
-	while(phase > TWO_PI){
-		phase -= TWO_PI;
-	}
-
-	if(bNoise == true){
-		// ---------------------- noise --------------
-		for(int i = 0; i < bufferSize; i++){
-			lAudio[i] = output[i * nChannels] = ofRandomf() * volume * leftScale;
-			rAudio[i] = output[i * nChannels + 1] = ofRandomf() * volume * rightScale;
-		}
-	} else {
-		phaseAdder = 0.95f * phaseAdder + 0.05f * phaseAdderTarget;
-		for(int i = 0; i < bufferSize; i++){
-			phase += phaseAdder;
-			float sample = sin(phase);
-			lAudio[i] = output[i * nChannels] = sample * volume * leftScale;
-			rAudio[i] = output[i * nChannels + 1] = sample * volume * rightScale;
-		}
-	}
-
-	
-}
 
 //--------------------------------------------------------------
-void ofApp::touchDown(ofTouchEventArgs & touch){
-	bNoise = true;
-}
+void ofApp::audioOut(float * output, int bufferSize, int nChannels) {
 
-//--------------------------------------------------------------
-void ofApp::touchMoved(ofTouchEventArgs & touch){
-	if(touch.id ==  0){
-		int width = ofGetWidth();
-		pan = (float)touch.x / (float)width;
+    for (int i = 0; i < bufferSize; i++){
         
-        int height = ofGetHeight();
-        targetFrequency = ((float)touch.y / (float)height) * 1000;
-        phaseAdderTarget = (targetFrequency / (float)sampleRate) * TWO_PI;
-	}
+        output[i*nChannels    ] = 0;
+        output[i*nChannels + 1] = 0;
+
+        for (int k=0; k<3; k++) {
+            zones[k].play(i);
+            output[i*nChannels    ] += zones[k].getOutput(0);
+            output[i*nChannels + 1] += zones[k].getOutput(1);
+        }
+    }
 }
 
 //--------------------------------------------------------------
-void ofApp::touchUp(ofTouchEventArgs & touch){
-	bNoise = false;
+void ofApp::audioIn(float * input, int bufferSize, int nChannels){
+    for (int i = 0; i < bufferSize; i++){
+        
+        lAudioIn[i]=input[i*nChannels];
+        rAudioIn[i]=input[i*nChannels +1];
+    }
+}
+
+
+//--------------------------------------------------------------
+void ofApp::touchDown(ofTouchEventArgs &touch){
+    
 }
 
 //--------------------------------------------------------------
-void ofApp::touchDoubleTap(ofTouchEventArgs & touch){
+void ofApp::touchMoved(ofTouchEventArgs &touch){
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::touchUp(ofTouchEventArgs &touch){
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::touchDoubleTap(ofTouchEventArgs &touch){
     
 }
 
 //--------------------------------------------------------------
 void ofApp::touchCancelled(ofTouchEventArgs & touch){
-	bNoise = false;
+    
 }
 
 //--------------------------------------------------------------
@@ -183,5 +189,6 @@ void ofApp::gotMemoryWarning(){
 
 //--------------------------------------------------------------
 void ofApp::deviceOrientationChanged(int newOrientation){
-    
+
 }
+
