@@ -31,7 +31,7 @@ void ofxAVUIXYCanvas::draw(){
   ofPushStyle();
   ofSetColor(255,255,255,90);
   if (bgImage.isAllocated()) {
-    bgImage.draw(0,0,shape.width, shape.height);
+    bgImage.draw(shape.x,shape.y,shape.width, shape.height);
   }
   
   ofPopStyle();  

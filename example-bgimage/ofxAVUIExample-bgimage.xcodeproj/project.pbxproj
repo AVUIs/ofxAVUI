@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EA775CF1C947121007EB610 /* ofxAVUIRangeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EA775CD1C947121007EB610 /* ofxAVUIRangeSlider.cpp */; };
+		3EA775D81C948E07007EB610 /* ofxAVUIVisualGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EA775D41C948E07007EB610 /* ofxAVUIVisualGrid.cpp */; };
+		3EA775D91C948E07007EB610 /* ofxAVUIVisualLissajous.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EA775D61C948E07007EB610 /* ofxAVUIVisualLissajous.cpp */; };
 		3EBC7A6B1C8450B10074E549 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC7A581C8450B10074E549 /* fft.cpp */; };
 		3EBC7A6C1C8450B10074E549 /* maxiAtoms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC7A5A1C8450B10074E549 /* maxiAtoms.cpp */; };
 		3EBC7A6D1C8450B10074E549 /* maxiBark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC7A5C1C8450B10074E549 /* maxiBark.cpp */; };
@@ -28,6 +31,8 @@
 		3ED152B31C8A006400591B31 /* ofxAVUIXYPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152A71C8A006400591B31 /* ofxAVUIXYPad.cpp */; };
 		3ED152B41C8A006400591B31 /* ofxAVUIVisualBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152AA1C8A006400591B31 /* ofxAVUIVisualBase.cpp */; };
 		3ED152B51C8A006400591B31 /* ofxAVUIVisualWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */; };
+		BC2BDC651C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC2BDC631C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp */; };
+		BC2BDC681C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC2BDC661C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp */; };
 		BC7D96941C8EE34200467FEF /* ofxAVUIVisualCircles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC7D96921C8EE34200467FEF /* ofxAVUIVisualCircles.cpp */; };
 		BCBC33801C8E1CD1001A035E /* ofxAVUIVisualBars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCBC337E1C8E1CD1001A035E /* ofxAVUIVisualBars.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -65,6 +70,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3EA775CD1C947121007EB610 /* ofxAVUIRangeSlider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIRangeSlider.cpp; sourceTree = "<group>"; };
+		3EA775CE1C947121007EB610 /* ofxAVUIRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIRangeSlider.h; sourceTree = "<group>"; };
+		3EA775D41C948E07007EB610 /* ofxAVUIVisualGrid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualGrid.cpp; sourceTree = "<group>"; };
+		3EA775D51C948E07007EB610 /* ofxAVUIVisualGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualGrid.h; sourceTree = "<group>"; };
+		3EA775D61C948E07007EB610 /* ofxAVUIVisualLissajous.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualLissajous.cpp; sourceTree = "<group>"; };
+		3EA775D71C948E07007EB610 /* ofxAVUIVisualLissajous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualLissajous.h; sourceTree = "<group>"; };
 		3EBC7A561C8450B10074E549 /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		3EBC7A581C8450B10074E549 /* fft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
 		3EBC7A591C8450B10074E549 /* fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
@@ -111,12 +122,16 @@
 		3ED152AB1C8A006400591B31 /* ofxAVUIVisualBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualBase.h; sourceTree = "<group>"; };
 		3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualWave.cpp; sourceTree = "<group>"; };
 		3ED152AD1C8A006400591B31 /* ofxAVUIVisualWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualWave.h; sourceTree = "<group>"; };
+		BC2BDC631C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualImage.cpp; sourceTree = "<group>"; };
+		BC2BDC641C94A54F000FB4F5 /* ofxAVUIVisualImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualImage.h; sourceTree = "<group>"; };
+		BC2BDC661C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIXYCanvas.cpp; sourceTree = "<group>"; };
+		BC2BDC671C94A565000FB4F5 /* ofxAVUIXYCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIXYCanvas.h; sourceTree = "<group>"; };
 		BC7D96921C8EE34200467FEF /* ofxAVUIVisualCircles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualCircles.cpp; sourceTree = "<group>"; };
 		BC7D96931C8EE34200467FEF /* ofxAVUIVisualCircles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualCircles.h; sourceTree = "<group>"; };
 		BCBC337E1C8E1CD1001A035E /* ofxAVUIVisualBars.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualBars.cpp; sourceTree = "<group>"; };
 		BCBC337F1C8E1CD1001A035E /* ofxAVUIVisualBars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualBars.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
-		E4B69B5B0A3A1756003C02F2 /* ofxAVUIExampleDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ofxAVUIExampleDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69B5B0A3A1756003C02F2 /* ofxAVUIExample-bgimageDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ofxAVUIExample-bgimageDebug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
@@ -220,6 +235,8 @@
 		3ED1529C1C8A006400591B31 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BC2BDC661C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp */,
+				BC2BDC671C94A565000FB4F5 /* ofxAVUIXYCanvas.h */,
 				3ED1529D1C8A006400591B31 /* ofxAVUIBase.cpp */,
 				3ED1529E1C8A006400591B31 /* ofxAVUIBase.h */,
 				3ED1529F1C8A006400591B31 /* ofxAVUIButton.cpp */,
@@ -228,6 +245,8 @@
 				3ED152A21C8A006400591B31 /* ofxAVUIEmpty.h */,
 				3ED152A31C8A006400591B31 /* ofxAVUISlider.cpp */,
 				3ED152A41C8A006400591B31 /* ofxAVUISlider.h */,
+				3EA775CD1C947121007EB610 /* ofxAVUIRangeSlider.cpp */,
+				3EA775CE1C947121007EB610 /* ofxAVUIRangeSlider.h */,
 				3ED152A51C8A006400591B31 /* ofxAVUIToggle.cpp */,
 				3ED152A61C8A006400591B31 /* ofxAVUIToggle.h */,
 				3ED152A71C8A006400591B31 /* ofxAVUIXYPad.cpp */,
@@ -239,6 +258,8 @@
 		3ED152A91C8A006400591B31 /* visual */ = {
 			isa = PBXGroup;
 			children = (
+				BC2BDC631C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp */,
+				BC2BDC641C94A54F000FB4F5 /* ofxAVUIVisualImage.h */,
 				BC7D96921C8EE34200467FEF /* ofxAVUIVisualCircles.cpp */,
 				BC7D96931C8EE34200467FEF /* ofxAVUIVisualCircles.h */,
 				3ED152AA1C8A006400591B31 /* ofxAVUIVisualBase.cpp */,
@@ -247,6 +268,10 @@
 				BCBC337F1C8E1CD1001A035E /* ofxAVUIVisualBars.h */,
 				3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */,
 				3ED152AD1C8A006400591B31 /* ofxAVUIVisualWave.h */,
+				3EA775D41C948E07007EB610 /* ofxAVUIVisualGrid.cpp */,
+				3EA775D51C948E07007EB610 /* ofxAVUIVisualGrid.h */,
+				3EA775D61C948E07007EB610 /* ofxAVUIVisualLissajous.cpp */,
+				3EA775D71C948E07007EB610 /* ofxAVUIVisualLissajous.h */,
 			);
 			path = visual;
 			sourceTree = "<group>";
@@ -276,7 +301,7 @@
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
-				E4B69B5B0A3A1756003C02F2 /* ofxAVUIExampleDebug.app */,
+				E4B69B5B0A3A1756003C02F2 /* ofxAVUIExample-bgimageDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -302,9 +327,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4B69B5A0A3A1756003C02F2 /* ofxAVUIExample */ = {
+		E4B69B5A0A3A1756003C02F2 /* ofxAVUIExample-bgimage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "ofxAVUIExample" */;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "ofxAVUIExample-bgimage" */;
 			buildPhases = (
 				E4B69B580A3A1756003C02F2 /* Sources */,
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
@@ -316,9 +341,9 @@
 			dependencies = (
 				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
 			);
-			name = ofxAVUIExample;
+			name = "ofxAVUIExample-bgimage";
 			productName = myOFApp;
-			productReference = E4B69B5B0A3A1756003C02F2 /* ofxAVUIExampleDebug.app */;
+			productReference = E4B69B5B0A3A1756003C02F2 /* ofxAVUIExample-bgimageDebug.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -329,7 +354,7 @@
 			attributes = {
 				LastUpgradeCheck = 0600;
 			};
-			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "ofxAVUIExample" */;
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "ofxAVUIExample-bgimage" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -350,7 +375,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				E4B69B5A0A3A1756003C02F2 /* ofxAVUIExample */,
+				E4B69B5A0A3A1756003C02F2 /* ofxAVUIExample-bgimage */,
 			);
 		};
 /* End PBXProject section */
@@ -389,9 +414,11 @@
 				3ED152AF1C8A006400591B31 /* ofxAVUIButton.cpp in Sources */,
 				3ED152B11C8A006400591B31 /* ofxAVUISlider.cpp in Sources */,
 				3ED152921C89FFE300591B31 /* ofxAVUISoundFxFilter.cpp in Sources */,
+				BC2BDC681C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp in Sources */,
 				3ED152B41C8A006400591B31 /* ofxAVUIVisualBase.cpp in Sources */,
 				3ED152911C89FFE300591B31 /* ofxAVUISoundFxDelay.cpp in Sources */,
 				3EBC7A721C8450B10074E549 /* stb_vorbis.c in Sources */,
+				BC2BDC651C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp in Sources */,
 				3ED152931C89FFE300591B31 /* ofxAVUIZonePlayer.cpp in Sources */,
 				3ED152B21C8A006400591B31 /* ofxAVUIToggle.cpp in Sources */,
 				3EBC7A6B1C8450B10074E549 /* fft.cpp in Sources */,
@@ -400,15 +427,18 @@
 				3ED152B51C8A006400591B31 /* ofxAVUIVisualWave.cpp in Sources */,
 				3ED152901C89FFE300591B31 /* ofxAVUISoundFxBase.cpp in Sources */,
 				BCBC33801C8E1CD1001A035E /* ofxAVUIVisualBars.cpp in Sources */,
+				3EA775D91C948E07007EB610 /* ofxAVUIVisualLissajous.cpp in Sources */,
 				3EBC7A6C1C8450B10074E549 /* maxiAtoms.cpp in Sources */,
 				3EBC7A6D1C8450B10074E549 /* maxiBark.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				3EA775CF1C947121007EB610 /* ofxAVUIRangeSlider.cpp in Sources */,
 				3EBC7A711C8450B10074E549 /* maximilian.cpp in Sources */,
 				3EBC7A8F1C84559E0074E549 /* ofxAVUIZone.cpp in Sources */,
 				3ED152B31C8A006400591B31 /* ofxAVUIXYPad.cpp in Sources */,
 				3EBC7A701C8450B10074E549 /* maxiMFCC.cpp in Sources */,
 				3ED152AE1C8A006400591B31 /* ofxAVUIBase.cpp in Sources */,
 				3EBC7A6F1C8450B10074E549 /* maxiGrains.cpp in Sources */,
+				3EA775D81C948E07007EB610 /* ofxAVUIVisualGrid.cpp in Sources */,
 				3ED152B01C8A006400591B31 /* ofxAVUIEmpty.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 			);
@@ -502,7 +532,7 @@
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_NAME = ofxAVUIExampleDebug;
+				PRODUCT_NAME = "ofxAVUIExample-bgimageDebug";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -525,7 +555,7 @@
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_NAME = ofxAVUIExampleDebug;
+				PRODUCT_NAME = "ofxAVUIExample-bgimageDebug";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
 			};
@@ -534,7 +564,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "ofxAVUIExample" */ = {
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "ofxAVUIExample-bgimage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B4E0A3A1720003C02F2 /* Debug */,
@@ -543,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "ofxAVUIExample" */ = {
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "ofxAVUIExample-bgimage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B600A3A1757003C02F2 /* Debug */,
