@@ -17,6 +17,7 @@
 #include "ofxAVUIToggle.h"
 #include "ofxAVUIEmpty.h"
 #include "ofxAVUISlider.h"
+#include "ofxAVUIRangeSlider.h"
 
 #include "ofxAVUIVisualBase.h"
 #include "ofxAVUIVisualWave.h"

@@ -33,6 +33,14 @@ void ofApp::setup(){
     //button parameters: caption, trigger (single tap) parameter name
     ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", "triggerPlay");
     zones[0].addUI(button1, 100);
+    
+    zones[0].addParameterFloat("hueMin", 0,255,200);
+    zones[0].addParameterFloat("hueMax", 0,255,50);
+    //slider parameters: caption, x min parameter name, x max parameter name
+    ofxAVUIRangeSlider *rsl1 = new ofxAVUIRangeSlider("Hue","hueMin", "hueMax");
+    //pad additional parameter: height
+    zones[0].addUI(rsl1, 150);
+
     //ZONE 0 AUDIO EFFECTS
     //empty
     //ZONE 0 VISUALS
