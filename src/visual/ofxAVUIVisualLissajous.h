@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "ofMain.h"
 #include "ofxAVUIVisualBase.h"
+#include "ofxSyphon.h"
 
 #define DEFAULT_SPEED 0.025
 

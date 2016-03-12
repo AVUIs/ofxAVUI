@@ -11,7 +11,6 @@
 ofxAVUIVisualLissajous::ofxAVUIVisualLissajous()
 {
     syphonOut.setName("ofxAVUIVisual");
-    visualFbo.allocate(shape.width, shape.height);
     
     pointCount = 500;
     
@@ -24,6 +23,8 @@ ofxAVUIVisualLissajous::ofxAVUIVisualLissajous()
 
 void ofxAVUIVisualLissajous::draw(float * buffer, float amplitude)
 {
+    
+    visualFbo.allocate(shape.width, shape.height);
     
     visualFbo.begin();
     ofClear(0,0,0);

@@ -11,6 +11,7 @@
 
 #include "ofMain.h"
 #include "ofxAVUIVisualBase.h"
+#include "ofxSyphon.h"
 
 class ofxAVUIVisualGrid : public ofxAVUIVisualBase {
 public:
