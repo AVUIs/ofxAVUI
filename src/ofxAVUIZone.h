@@ -13,6 +13,7 @@
 
 #include "ofxAVUIBase.h"
 #include "ofxAVUIXYPad.h"
+#include "ofxAVUIXYCanvas.h"
 #include "ofxAVUIButton.h"
 #include "ofxAVUIToggle.h"
 #include "ofxAVUIEmpty.h"
@@ -25,6 +26,7 @@
 #include "ofxAVUIVisualCircles.h"
 #include "ofxAVUIVisualLissajous.h"
 #include "ofxAVUIVisualGrid.h"
+#include "ofxAVUIVisualImage.h"
 
 #include "ofxAVUIZonePlayer.h"
 #include "ofxAVUISoundFxBase.h"
