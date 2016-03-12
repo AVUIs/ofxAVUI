@@ -23,6 +23,8 @@
 #include "ofxAVUIVisualWave.h"
 #include "ofxAVUIVisualBars.h"
 #include "ofxAVUIVisualCircles.h"
+#include "ofxAVUIVisualLissajous.h"
+#include "ofxAVUIVisualGrid.h"
 
 #include "ofxAVUIZonePlayer.h"
 #include "ofxAVUISoundFxBase.h"
