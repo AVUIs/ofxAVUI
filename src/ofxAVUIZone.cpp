@@ -7,6 +7,14 @@
 
 #include "ofxAVUIZone.h"
 
+const string ofxAVUIZone::DEV_NULL = "null";
+const string ofxAVUIZone::VOLUME = "volume";
+const string ofxAVUIZone::PITCH = "pitch";
+const string ofxAVUIZone::TOGGLE_LOOPING = "toggleLooping";
+const string ofxAVUIZone::TRIGGER_LOOPING = "triggerLooping";
+const string ofxAVUIZone::TOGGLE_PLAY = "togglePlay";
+const string ofxAVUIZone::TRIGGER_PLAY = "triggerPlay";
+
 ofxAVUIZone::ofxAVUIZone() {
     name = "";
     shape.x = 0;
@@ -32,21 +40,21 @@ ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColo
     bgColor = _backgroundColor;
     player.setup(ofToDataPath(_sound), _bufferSize);
     
-    soundProperties.add(devNull.set("null", 1.0, 0.0, 2.0));
+    soundProperties.add(devNull.set(DEV_NULL, 1.0, 0.0, 2.0));
 
-    soundProperties.add(pitch.set("pitch", player.speed, 0.0, 2.0));
+    soundProperties.add(pitch.set(PITCH, player.speed, 0.0, 2.0));
     pitch.addListener(this,&ofxAVUIZone::pitchChanged);
 
-    soundProperties.add(volume.set("volume", player.amplitude, 0.0, 2.0));
+    soundProperties.add(volume.set(VOLUME, player.amplitude, 0.0, 2.0));
     volume.addListener(this,&ofxAVUIZone::volumeChanged);
 
-    soundProperties.add(looping.set("toggleLooping", player.looping));
+    soundProperties.add(looping.set(TOGGLE_LOOPING, player.looping));
     looping.addListener(this,&ofxAVUIZone::loopingChanged);
 
-    soundProperties.add(trigger.set("triggerPlay", false));
+    soundProperties.add(trigger.set(TRIGGER_PLAY, false));
     trigger.addListener(this,&ofxAVUIZone::triggerReceived);
 
-    soundProperties.add(toggle.set("togglePlay", false));
+    soundProperties.add(toggle.set(TOGGLE_PLAY, false));
     toggle.addListener(this,&ofxAVUIZone::toggleReceived);
 
     loaded = true;

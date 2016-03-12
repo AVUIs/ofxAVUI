@@ -24,14 +24,15 @@ void ofApp::setup(){
     zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
     //ZONE 0 UI
     //pad parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name, y parameter name
-    ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", "triggerPlay",  "toggleLooping", "volume", "pitch");
+    
+    ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", ofxAVUIZone::TRIGGER_PLAY,  ofxAVUIZone::TRIGGER_LOOPING, ofxAVUIZone::VOLUME, ofxAVUIZone::PITCH);
     //pad additional parameter: height
     zones[0].addUI(pad1, 150);
     //toggle parameters: caption, toggle (double tap) parameter name
-    ofxAVUIToggle *toggle1 = new ofxAVUIToggle("Looping", "toggleLooping");
+    ofxAVUIToggle *toggle1 = new ofxAVUIToggle("Looping", ofxAVUIZone::TOGGLE_LOOPING);
     zones[0].addUI(toggle1, 100);
     //button parameters: caption, trigger (single tap) parameter name
-    ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", "triggerPlay");
+    ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", ofxAVUIZone::TOGGLE_PLAY);
     zones[0].addUI(button1, 100);
     
     zones[0].addParameterFloat("hueMin", 0,255,200);
@@ -52,14 +53,14 @@ void ofApp::setup(){
     //ZONE 1 UI
     ofxAVUIEmpty *empty1 = new ofxAVUIEmpty("Empty");
     zones[1].addUI(empty1, 50);
-    ofxAVUIXYPad *pad2 = new ofxAVUIXYPad("Pad", "triggerPlay", "triggerPlay", "pitch", "volume");
+    ofxAVUIXYPad *pad2 = new ofxAVUIXYPad("Pad", ofxAVUIZone::TRIGGER_PLAY, ofxAVUIZone::TRIGGER_PLAY, ofxAVUIZone::PITCH, ofxAVUIZone::VOLUME);
     zones[1].addUI(pad2, 100);
     ofxAVUIEmpty *empty2 = new ofxAVUIEmpty("");
     zones[1].addUI(empty2, 75);
     //slider parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name
-    ofxAVUISlider *slider1 = new ofxAVUISlider("Slider", "triggerPlay", "toggleLooping", "pitch");
+    ofxAVUISlider *slider1 = new ofxAVUISlider("Slider", ofxAVUIZone::TRIGGER_PLAY, ofxAVUIZone::TOGGLE_LOOPING, ofxAVUIZone::PITCH);
     zones[1].addUI(slider1, 100);
-    ofxAVUIToggle *toggle2 = new ofxAVUIToggle("Looping", "toggleLooping");
+    ofxAVUIToggle *toggle2 = new ofxAVUIToggle("Looping", ofxAVUIZone::TOGGLE_LOOPING);
     zones[1].addUI(toggle2, 50);
     //ZONE 1 AUDIO EFFECTS
     //empty
@@ -70,7 +71,7 @@ void ofApp::setup(){
     //ZONE 2 SETUP
     zones[2].setup("zone3", 500, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), "bass.wav", bufferSize);
     //ZONE 2 UI
-    ofxAVUIXYPad *pad3 = new ofxAVUIXYPad("Pad", "triggerPlay", "triggerPlay", "pitch", "volume");
+    ofxAVUIXYPad *pad3 = new ofxAVUIXYPad("Pad", ofxAVUIZone::TRIGGER_PLAY, ofxAVUIZone::TRIGGER_PLAY, ofxAVUIZone::PITCH, ofxAVUIZone::VOLUME);
     zones[2].addUI(pad3, 100);
     ofxAVUIXYPad *pad4 = new ofxAVUIXYPad("Filter Pad", "filterTrigger", "filterToggle", "frequency", "resonance");
     zones[2].addUI(pad4, 100);
