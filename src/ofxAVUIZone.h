@@ -27,6 +27,8 @@
 #include "ofxAVUIVisualLissajous.h"
 #include "ofxAVUIVisualGrid.h"
 #include "ofxAVUIVisualImage.h"
+#include "ofxAVUIMFCC.h"
+#include "ofxAVUIFFT.h"
 
 #include "ofxAVUIZonePlayer.h"
 #include "ofxAVUISoundFxBase.h"
