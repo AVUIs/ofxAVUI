@@ -1,0 +1,647 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		083FB2094A4DE99F5A60397A /* maxiMFCC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 440B2B891BD019685EF360B8 /* maxiMFCC.cpp */; };
+		0B5F1C6F1C973760006ACAB6 /* ofxAVUIFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B5F1C6B1C973760006ACAB6 /* ofxAVUIFFT.cpp */; };
+		0B5F1C701C973760006ACAB6 /* ofxAVUIMFCC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B5F1C6D1C973760006ACAB6 /* ofxAVUIMFCC.cpp */; };
+		0FCED26D40D46CF89A58E54C /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3C78E7AB53E01022E9374A3 /* fft.cpp */; };
+		142749F47852A482629865FD /* ofxAVUISoundFxBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6A009871A69CF429E9BBA63 /* ofxAVUISoundFxBase.cpp */; };
+		22F21CE3B902225374BA1CA2 /* maximilian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87D3A0051CCB2C0F0ECA139E /* maximilian.cpp */; };
+		23F459E0E5135DF419D675B5 /* ofxAVUIEmpty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2696E40C353D19AA04917ED /* ofxAVUIEmpty.cpp */; };
+		4DFA1E345C3C74880C3BFF37 /* ofxAVUISlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C23F8FFDA1D4451E5AC2B58B /* ofxAVUISlider.cpp */; };
+		5C4A4AA5D4784DF23EA43038 /* maxiAtoms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA3ACBB8D16CC0DA1E79C6 /* maxiAtoms.cpp */; };
+		5FB53EC99B635D2CC2E1F51E /* ofxAVUISoundFxFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 448DD4652C71F9A535D83A8F /* ofxAVUISoundFxFilter.cpp */; };
+		670E8403DA22CFFAE780D6C5 /* ofxAVUISoundFxDelay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0BC8F25991E32EB25A5A5 /* ofxAVUISoundFxDelay.cpp */; };
+		6AC13132092AB85DE61A0E73 /* ofxAVUIVisualGrid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE658CF87091A3DCB41219 /* ofxAVUIVisualGrid.cpp */; };
+		7F2974D15259295C606877E1 /* ofxAVUIVisualCircles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBE3CDE9275587A02385E174 /* ofxAVUIVisualCircles.cpp */; };
+		89F950D3258358D64801996C /* ofxAVUIVisualWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6437C5218AEB5829BCF6AEC4 /* ofxAVUIVisualWave.cpp */; };
+		94A68BB37AFE56F428EA55FA /* ofxAVUIButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46BEB37C0F2BC92C21EF62EA /* ofxAVUIButton.cpp */; };
+		9514C2D90467055B1447D074 /* stb_vorbis.c in Sources */ = {isa = PBXBuildFile; fileRef = 80CD68E0DDF2C60D2715CC78 /* stb_vorbis.c */; };
+		96084990AF216648B8B98E00 /* maxiFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A4EE0E35ED739A31CD0153E /* maxiFFT.cpp */; };
+		971D444320878C450E4A89E9 /* ofxAVUIVisualImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E46814AAF02C2A2A5AC02CCD /* ofxAVUIVisualImage.cpp */; };
+		9D0946EDFC36FDAA66E8697E /* ofxAVUIToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D128B24431B717F3470D6ECF /* ofxAVUIToggle.cpp */; };
+		A58208A3BFB918B587F4194C /* ofxAVUIZonePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B1E41B64BB7515E35D1507D8 /* ofxAVUIZonePlayer.cpp */; };
+		ABA8875AF0C06690CC0B92B1 /* maxiBark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B9936002B519C1290F25FEC /* maxiBark.cpp */; };
+		AF0580829426DC6BCA135A5C /* maxiGrains.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D2FB19B70632A6F86622D94 /* maxiGrains.cpp */; };
+		C19BAC2B1AEBCD4E63E54CA1 /* ofxAVUIXYPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843498CB1ED92C695EFCEC6B /* ofxAVUIXYPad.cpp */; };
+		C1AE721F9593BEDF1BA54875 /* ofxAVUIZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35EA70B41CA03E7EC4418D82 /* ofxAVUIZone.cpp */; };
+		D5C24F69F7E7C3FA5FED708B /* ofxAVUIVisualBars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6F160207B70F6DBC8D8D386D /* ofxAVUIVisualBars.cpp */; };
+		D884B0747F00654A6CC2F40C /* ofxAVUIVisualBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EBB2360A2948291558306DEF /* ofxAVUIVisualBase.cpp */; };
+		DC03625DEACDA5A83114FB37 /* ofxAVUIRangeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BFF92B9FFC3AFA2104188F3A /* ofxAVUIRangeSlider.cpp */; };
+		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
+		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
+		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		F243A4D87BF16C7441721F6B /* ofxAVUIVisualLissajous.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21EB2533277153BBCB8CE76F /* ofxAVUIVisualLissajous.cpp */; };
+		F912A444692510FD96AB09F8 /* ofxAVUIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9128C68562DF02448D4CCB20 /* ofxAVUIBase.cpp */; };
+		FC30F1E5AC28A6D0E46C09D7 /* ofxAVUIXYCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F112170C05FC5BE093D46 /* ofxAVUIXYCanvas.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4328147138ABC890047C5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4B27C1510CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+		E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E4B27C1410CBEB8E00536013;
+			remoteInfo = openFrameworks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E4C2427710CC5ABF004149E2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		064F3DBDB8F01D10B789B496 /* ofxAVUIVisualLissajous.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIVisualLissajous.h; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualLissajous.h; sourceTree = SOURCE_ROOT; };
+		0B5F1C6B1C973760006ACAB6 /* ofxAVUIFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIFFT.cpp; sourceTree = "<group>"; };
+		0B5F1C6C1C973760006ACAB6 /* ofxAVUIFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIFFT.h; sourceTree = "<group>"; };
+		0B5F1C6D1C973760006ACAB6 /* ofxAVUIMFCC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIMFCC.cpp; sourceTree = "<group>"; };
+		0B5F1C6E1C973760006ACAB6 /* ofxAVUIMFCC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIMFCC.h; sourceTree = "<group>"; };
+		1B842E36B765D0A9DE2D5BB5 /* ofxAVUIVisualWave.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIVisualWave.h; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualWave.h; sourceTree = SOURCE_ROOT; };
+		1EFA3ACBB8D16CC0DA1E79C6 /* maxiAtoms.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = maxiAtoms.cpp; path = ../../../addons/ofxMaxim/libs/maxiAtoms.cpp; sourceTree = SOURCE_ROOT; };
+		1F70CB3315D85D4CB3241017 /* ofxAVUISoundFxBase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUISoundFxBase.h; path = ../../../addons/ofxAVUI/src/audio/ofxAVUISoundFxBase.h; sourceTree = SOURCE_ROOT; };
+		21EB2533277153BBCB8CE76F /* ofxAVUIVisualLissajous.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIVisualLissajous.cpp; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualLissajous.cpp; sourceTree = SOURCE_ROOT; };
+		2CDE658CF87091A3DCB41219 /* ofxAVUIVisualGrid.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIVisualGrid.cpp; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualGrid.cpp; sourceTree = SOURCE_ROOT; };
+		35EA70B41CA03E7EC4418D82 /* ofxAVUIZone.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIZone.cpp; path = ../../../addons/ofxAVUI/src/ofxAVUIZone.cpp; sourceTree = SOURCE_ROOT; };
+		440B2B891BD019685EF360B8 /* maxiMFCC.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = maxiMFCC.cpp; path = ../../../addons/ofxMaxim/libs/maxiMFCC.cpp; sourceTree = SOURCE_ROOT; };
+		448DD4652C71F9A535D83A8F /* ofxAVUISoundFxFilter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUISoundFxFilter.cpp; path = ../../../addons/ofxAVUI/src/audio/ofxAVUISoundFxFilter.cpp; sourceTree = SOURCE_ROOT; };
+		46BEB37C0F2BC92C21EF62EA /* ofxAVUIButton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIButton.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIButton.cpp; sourceTree = SOURCE_ROOT; };
+		4C43208977619FB33A489E23 /* ofxAVUISlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUISlider.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUISlider.h; sourceTree = SOURCE_ROOT; };
+		4CFB659E40D3D3DC5A3E9478 /* maxiGrains.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = maxiGrains.h; path = ../../../addons/ofxMaxim/libs/maxiGrains.h; sourceTree = SOURCE_ROOT; };
+		51D7DC527AD3CE18F3B753D1 /* ofxAVUIVisualImage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIVisualImage.h; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualImage.h; sourceTree = SOURCE_ROOT; };
+		5878B9A09165D38B5FBA605B /* ofxAVUIZonePlayer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIZonePlayer.h; path = ../../../addons/ofxAVUI/src/ofxAVUIZonePlayer.h; sourceTree = SOURCE_ROOT; };
+		5DE0BC8F25991E32EB25A5A5 /* ofxAVUISoundFxDelay.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUISoundFxDelay.cpp; path = ../../../addons/ofxAVUI/src/audio/ofxAVUISoundFxDelay.cpp; sourceTree = SOURCE_ROOT; };
+		5FACC422F3AEE5C70719FA45 /* ofxAVUIXYPad.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIXYPad.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIXYPad.h; sourceTree = SOURCE_ROOT; };
+		6437C5218AEB5829BCF6AEC4 /* ofxAVUIVisualWave.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIVisualWave.cpp; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualWave.cpp; sourceTree = SOURCE_ROOT; };
+		6A4EE0E35ED739A31CD0153E /* maxiFFT.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = maxiFFT.cpp; path = ../../../addons/ofxMaxim/libs/maxiFFT.cpp; sourceTree = SOURCE_ROOT; };
+		6AC680D6F974D3EE0F8BA86B /* ofxAVUIVisualGrid.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIVisualGrid.h; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualGrid.h; sourceTree = SOURCE_ROOT; };
+		6F160207B70F6DBC8D8D386D /* ofxAVUIVisualBars.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIVisualBars.cpp; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualBars.cpp; sourceTree = SOURCE_ROOT; };
+		7B6F112170C05FC5BE093D46 /* ofxAVUIXYCanvas.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIXYCanvas.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIXYCanvas.cpp; sourceTree = SOURCE_ROOT; };
+		7D2CBAA6529BCE46CA661E02 /* maxiAtoms.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = maxiAtoms.h; path = ../../../addons/ofxMaxim/libs/maxiAtoms.h; sourceTree = SOURCE_ROOT; };
+		80CD68E0DDF2C60D2715CC78 /* stb_vorbis.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 30; name = stb_vorbis.c; path = ../../../addons/ofxMaxim/libs/stb_vorbis.c; sourceTree = SOURCE_ROOT; };
+		843498CB1ED92C695EFCEC6B /* ofxAVUIXYPad.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIXYPad.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIXYPad.cpp; sourceTree = SOURCE_ROOT; };
+		869B0C30EC54E204E8D6EAEB /* ofxAVUIEmpty.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIEmpty.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIEmpty.h; sourceTree = SOURCE_ROOT; };
+		87D3A0051CCB2C0F0ECA139E /* maximilian.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = maximilian.cpp; path = ../../../addons/ofxMaxim/libs/maximilian.cpp; sourceTree = SOURCE_ROOT; };
+		8D2607EAD1C3080B3BC0B60F /* ofxAVUIXYCanvas.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIXYCanvas.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIXYCanvas.h; sourceTree = SOURCE_ROOT; };
+		9128C68562DF02448D4CCB20 /* ofxAVUIBase.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIBase.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIBase.cpp; sourceTree = SOURCE_ROOT; };
+		9312F3864ED05FC3E847FF69 /* ofxMaxim.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxMaxim.h; path = ../../../addons/ofxMaxim/src/ofxMaxim.h; sourceTree = SOURCE_ROOT; };
+		95C3AC11BE0AC7EC464D2A36 /* maximilian.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = maximilian.h; path = ../../../addons/ofxMaxim/libs/maximilian.h; sourceTree = SOURCE_ROOT; };
+		98EAED3DBF039720AFCE2B70 /* ofxAVUIButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIButton.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIButton.h; sourceTree = SOURCE_ROOT; };
+		9B9936002B519C1290F25FEC /* maxiBark.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = maxiBark.cpp; path = ../../../addons/ofxMaxim/libs/maxiBark.cpp; sourceTree = SOURCE_ROOT; };
+		9D2FB19B70632A6F86622D94 /* maxiGrains.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = maxiGrains.cpp; path = ../../../addons/ofxMaxim/libs/maxiGrains.cpp; sourceTree = SOURCE_ROOT; };
+		9E62A58D650BA7D69BB4E30C /* ofxAVUIZone.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIZone.h; path = ../../../addons/ofxAVUI/src/ofxAVUIZone.h; sourceTree = SOURCE_ROOT; };
+		A67372B9CAED43269F8D42D3 /* maxiBark.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = maxiBark.h; path = ../../../addons/ofxMaxim/libs/maxiBark.h; sourceTree = SOURCE_ROOT; };
+		B1E41B64BB7515E35D1507D8 /* ofxAVUIZonePlayer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIZonePlayer.cpp; path = ../../../addons/ofxAVUI/src/ofxAVUIZonePlayer.cpp; sourceTree = SOURCE_ROOT; };
+		B2F326FA07783558EF3CDD2A /* stb_vorbis.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = stb_vorbis.h; path = ../../../addons/ofxMaxim/libs/stb_vorbis.h; sourceTree = SOURCE_ROOT; };
+		B34D3539DB6F889A78540F7C /* sineTable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = sineTable.h; path = ../../../addons/ofxMaxim/libs/sineTable.h; sourceTree = SOURCE_ROOT; };
+		B465555151AA001F7E10EE7C /* ofxAVUIBase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIBase.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIBase.h; sourceTree = SOURCE_ROOT; };
+		BA5114869056DFF1A50CFA4A /* fft.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fft.h; path = ../../../addons/ofxMaxim/libs/fft.h; sourceTree = SOURCE_ROOT; };
+		BFF92B9FFC3AFA2104188F3A /* ofxAVUIRangeSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIRangeSlider.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIRangeSlider.cpp; sourceTree = SOURCE_ROOT; };
+		C23F8FFDA1D4451E5AC2B58B /* ofxAVUISlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUISlider.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUISlider.cpp; sourceTree = SOURCE_ROOT; };
+		C5874891FF6771E0834B71C9 /* ofxAVUIToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIToggle.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIToggle.h; sourceTree = SOURCE_ROOT; };
+		C6A009871A69CF429E9BBA63 /* ofxAVUISoundFxBase.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUISoundFxBase.cpp; path = ../../../addons/ofxAVUI/src/audio/ofxAVUISoundFxBase.cpp; sourceTree = SOURCE_ROOT; };
+		CC23070B58F66E31D237AB42 /* ofxAVUISoundFxFilter.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUISoundFxFilter.h; path = ../../../addons/ofxAVUI/src/audio/ofxAVUISoundFxFilter.h; sourceTree = SOURCE_ROOT; };
+		D128B24431B717F3470D6ECF /* ofxAVUIToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIToggle.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIToggle.cpp; sourceTree = SOURCE_ROOT; };
+		D1C864AE2FE539BE7FD1F628 /* maxiMFCC.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = maxiMFCC.h; path = ../../../addons/ofxMaxim/libs/maxiMFCC.h; sourceTree = SOURCE_ROOT; };
+		D412160A27B75D6D4CA81605 /* ofxAVUIVisualBase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIVisualBase.h; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualBase.h; sourceTree = SOURCE_ROOT; };
+		DD322A282CBF90616388CFB0 /* ofxAVUI.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUI.h; path = ../../../addons/ofxAVUI/src/ofxAVUI.h; sourceTree = SOURCE_ROOT; };
+		DF3486FA40DAEF97D4DAC2EB /* ofxAVUIVisualCircles.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIVisualCircles.h; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualCircles.h; sourceTree = SOURCE_ROOT; };
+		E11E35A994690B3DC6E30250 /* ofxAVUIVisualBars.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIVisualBars.h; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualBars.h; sourceTree = SOURCE_ROOT; };
+		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
+		E46814AAF02C2A2A5AC02CCD /* ofxAVUIVisualImage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIVisualImage.cpp; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualImage.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69B5B0A3A1756003C02F2 /* example-FFT_MFCCDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example-FFT_MFCCDebug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
+		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
+		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		EA104DAF42627B55968A9E34 /* ofxAVUIRangeSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUIRangeSlider.h; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIRangeSlider.h; sourceTree = SOURCE_ROOT; };
+		EBB2360A2948291558306DEF /* ofxAVUIVisualBase.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIVisualBase.cpp; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualBase.cpp; sourceTree = SOURCE_ROOT; };
+		ECB06B32D9FEBFE6FB16331D /* ofxAVUISoundFxDelay.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxAVUISoundFxDelay.h; path = ../../../addons/ofxAVUI/src/audio/ofxAVUISoundFxDelay.h; sourceTree = SOURCE_ROOT; };
+		EFA729F2F65D97F65DB52E44 /* maxiFFT.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = maxiFFT.h; path = ../../../addons/ofxMaxim/libs/maxiFFT.h; sourceTree = SOURCE_ROOT; };
+		F2696E40C353D19AA04917ED /* ofxAVUIEmpty.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIEmpty.cpp; path = ../../../addons/ofxAVUI/src/UI/ofxAVUIEmpty.cpp; sourceTree = SOURCE_ROOT; };
+		F3C78E7AB53E01022E9374A3 /* fft.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = fft.cpp; path = ../../../addons/ofxMaxim/libs/fft.cpp; sourceTree = SOURCE_ROOT; };
+		FBE3CDE9275587A02385E174 /* ofxAVUIVisualCircles.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxAVUIVisualCircles.cpp; path = ../../../addons/ofxAVUI/src/visual/ofxAVUIVisualCircles.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4B69B590A3A1756003C02F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11884E70528704B604A36DDA /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				C6A009871A69CF429E9BBA63 /* ofxAVUISoundFxBase.cpp */,
+				1F70CB3315D85D4CB3241017 /* ofxAVUISoundFxBase.h */,
+				5DE0BC8F25991E32EB25A5A5 /* ofxAVUISoundFxDelay.cpp */,
+				ECB06B32D9FEBFE6FB16331D /* ofxAVUISoundFxDelay.h */,
+				448DD4652C71F9A535D83A8F /* ofxAVUISoundFxFilter.cpp */,
+				CC23070B58F66E31D237AB42 /* ofxAVUISoundFxFilter.h */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
+		4903EEC6769AB52925A38958 /* ofxAVUI */ = {
+			isa = PBXGroup;
+			children = (
+				65F9E8DBBD355A20896DE10F /* src */,
+			);
+			name = ofxAVUI;
+			sourceTree = "<group>";
+		};
+		4ACC32F17B7623DA048865D1 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				F3C78E7AB53E01022E9374A3 /* fft.cpp */,
+				BA5114869056DFF1A50CFA4A /* fft.h */,
+				1EFA3ACBB8D16CC0DA1E79C6 /* maxiAtoms.cpp */,
+				7D2CBAA6529BCE46CA661E02 /* maxiAtoms.h */,
+				9B9936002B519C1290F25FEC /* maxiBark.cpp */,
+				A67372B9CAED43269F8D42D3 /* maxiBark.h */,
+				6A4EE0E35ED739A31CD0153E /* maxiFFT.cpp */,
+				EFA729F2F65D97F65DB52E44 /* maxiFFT.h */,
+				9D2FB19B70632A6F86622D94 /* maxiGrains.cpp */,
+				4CFB659E40D3D3DC5A3E9478 /* maxiGrains.h */,
+				440B2B891BD019685EF360B8 /* maxiMFCC.cpp */,
+				D1C864AE2FE539BE7FD1F628 /* maxiMFCC.h */,
+				87D3A0051CCB2C0F0ECA139E /* maximilian.cpp */,
+				95C3AC11BE0AC7EC464D2A36 /* maximilian.h */,
+				B34D3539DB6F889A78540F7C /* sineTable.h */,
+				80CD68E0DDF2C60D2715CC78 /* stb_vorbis.c */,
+				B2F326FA07783558EF3CDD2A /* stb_vorbis.h */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		6234D3BCE87D1C3BA2230F19 /* ofxMaxim */ = {
+			isa = PBXGroup;
+			children = (
+				8F6BFB59AB6D0A458C2F3C53 /* src */,
+				4ACC32F17B7623DA048865D1 /* libs */,
+			);
+			name = ofxMaxim;
+			sourceTree = "<group>";
+		};
+		65F9E8DBBD355A20896DE10F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				11884E70528704B604A36DDA /* audio */,
+				DD322A282CBF90616388CFB0 /* ofxAVUI.h */,
+				35EA70B41CA03E7EC4418D82 /* ofxAVUIZone.cpp */,
+				9E62A58D650BA7D69BB4E30C /* ofxAVUIZone.h */,
+				B1E41B64BB7515E35D1507D8 /* ofxAVUIZonePlayer.cpp */,
+				5878B9A09165D38B5FBA605B /* ofxAVUIZonePlayer.h */,
+				E5923C28187E8E5261F5C68C /* UI */,
+				A5FA32F4526F55D3C8E3461B /* visual */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		6948EE371B920CB800B5AC1A /* local_addons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = local_addons;
+			sourceTree = "<group>";
+		};
+		8F6BFB59AB6D0A458C2F3C53 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9312F3864ED05FC3E847FF69 /* ofxMaxim.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		A5FA32F4526F55D3C8E3461B /* visual */ = {
+			isa = PBXGroup;
+			children = (
+				0B5F1C6B1C973760006ACAB6 /* ofxAVUIFFT.cpp */,
+				0B5F1C6C1C973760006ACAB6 /* ofxAVUIFFT.h */,
+				0B5F1C6D1C973760006ACAB6 /* ofxAVUIMFCC.cpp */,
+				0B5F1C6E1C973760006ACAB6 /* ofxAVUIMFCC.h */,
+				6F160207B70F6DBC8D8D386D /* ofxAVUIVisualBars.cpp */,
+				E11E35A994690B3DC6E30250 /* ofxAVUIVisualBars.h */,
+				EBB2360A2948291558306DEF /* ofxAVUIVisualBase.cpp */,
+				D412160A27B75D6D4CA81605 /* ofxAVUIVisualBase.h */,
+				FBE3CDE9275587A02385E174 /* ofxAVUIVisualCircles.cpp */,
+				DF3486FA40DAEF97D4DAC2EB /* ofxAVUIVisualCircles.h */,
+				2CDE658CF87091A3DCB41219 /* ofxAVUIVisualGrid.cpp */,
+				6AC680D6F974D3EE0F8BA86B /* ofxAVUIVisualGrid.h */,
+				E46814AAF02C2A2A5AC02CCD /* ofxAVUIVisualImage.cpp */,
+				51D7DC527AD3CE18F3B753D1 /* ofxAVUIVisualImage.h */,
+				21EB2533277153BBCB8CE76F /* ofxAVUIVisualLissajous.cpp */,
+				064F3DBDB8F01D10B789B496 /* ofxAVUIVisualLissajous.h */,
+				6437C5218AEB5829BCF6AEC4 /* ofxAVUIVisualWave.cpp */,
+				1B842E36B765D0A9DE2D5BB5 /* ofxAVUIVisualWave.h */,
+			);
+			name = visual;
+			sourceTree = "<group>";
+		};
+		BB4B014C10F69532006C3DED /* addons */ = {
+			isa = PBXGroup;
+			children = (
+				4903EEC6769AB52925A38958 /* ofxAVUI */,
+				6234D3BCE87D1C3BA2230F19 /* ofxMaxim */,
+			);
+			name = addons;
+			sourceTree = "<group>";
+		};
+		E4328144138ABC890047C5CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4328148138ABC890047C5CB /* openFrameworksDebug.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4B69B4A0A3A1720003C02F2 = {
+			isa = PBXGroup;
+			children = (
+				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
+				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
+				E4B69E1C0A3A1BDC003C02F2 /* src */,
+				E4EEC9E9138DF44700A80321 /* openFrameworks */,
+				BB4B014C10F69532006C3DED /* addons */,
+				6948EE371B920CB800B5AC1A /* local_addons */,
+				E4B69B5B0A3A1756003C02F2 /* example-FFT_MFCCDebug.app */,
+			);
+			sourceTree = "<group>";
+		};
+		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+			);
+			path = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		E4EEC9E9138DF44700A80321 /* openFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */,
+				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
+			);
+			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		E5923C28187E8E5261F5C68C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9128C68562DF02448D4CCB20 /* ofxAVUIBase.cpp */,
+				B465555151AA001F7E10EE7C /* ofxAVUIBase.h */,
+				46BEB37C0F2BC92C21EF62EA /* ofxAVUIButton.cpp */,
+				98EAED3DBF039720AFCE2B70 /* ofxAVUIButton.h */,
+				F2696E40C353D19AA04917ED /* ofxAVUIEmpty.cpp */,
+				869B0C30EC54E204E8D6EAEB /* ofxAVUIEmpty.h */,
+				BFF92B9FFC3AFA2104188F3A /* ofxAVUIRangeSlider.cpp */,
+				EA104DAF42627B55968A9E34 /* ofxAVUIRangeSlider.h */,
+				C23F8FFDA1D4451E5AC2B58B /* ofxAVUISlider.cpp */,
+				4C43208977619FB33A489E23 /* ofxAVUISlider.h */,
+				D128B24431B717F3470D6ECF /* ofxAVUIToggle.cpp */,
+				C5874891FF6771E0834B71C9 /* ofxAVUIToggle.h */,
+				7B6F112170C05FC5BE093D46 /* ofxAVUIXYCanvas.cpp */,
+				8D2607EAD1C3080B3BC0B60F /* ofxAVUIXYCanvas.h */,
+				843498CB1ED92C695EFCEC6B /* ofxAVUIXYPad.cpp */,
+				5FACC422F3AEE5C70719FA45 /* ofxAVUIXYPad.h */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4B69B5A0A3A1756003C02F2 /* example-FFT_MFCC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example-FFT_MFCC" */;
+			buildPhases = (
+				E4B69B580A3A1756003C02F2 /* Sources */,
+				E4B69B590A3A1756003C02F2 /* Frameworks */,
+				E4B6FFFD0C3F9AB9008CF71C /* ShellScript */,
+				E4C2427710CC5ABF004149E2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
+			);
+			name = "example-FFT_MFCC";
+			productName = myOFApp;
+			productReference = E4B69B5B0A3A1756003C02F2 /* example-FFT_MFCCDebug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+			};
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example-FFT_MFCC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = E4B69B4A0A3A1720003C02F2;
+			productRefGroup = E4B69B4A0A3A1720003C02F2;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E4328144138ABC890047C5CB /* Products */;
+					ProjectRef = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E4B69B5A0A3A1756003C02F2 /* example-FFT_MFCC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E4328148138ABC890047C5CB /* openFrameworksDebug.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = openFrameworksDebug.a;
+			remoteRef = E4328147138ABC890047C5CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E4B6FFFD0C3F9AB9008CF71C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rsync -aved ../../../libs/fmodex/lib/osx/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/\"; install_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\nmkdir -p \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nrsync -aved \"$ICON_FILE\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nrsync -aved ../../../libs/glut/lib/osx/GLUT.framework \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Frameworks/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4B69B580A3A1756003C02F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				142749F47852A482629865FD /* ofxAVUISoundFxBase.cpp in Sources */,
+				670E8403DA22CFFAE780D6C5 /* ofxAVUISoundFxDelay.cpp in Sources */,
+				5FB53EC99B635D2CC2E1F51E /* ofxAVUISoundFxFilter.cpp in Sources */,
+				C1AE721F9593BEDF1BA54875 /* ofxAVUIZone.cpp in Sources */,
+				A58208A3BFB918B587F4194C /* ofxAVUIZonePlayer.cpp in Sources */,
+				F912A444692510FD96AB09F8 /* ofxAVUIBase.cpp in Sources */,
+				94A68BB37AFE56F428EA55FA /* ofxAVUIButton.cpp in Sources */,
+				23F459E0E5135DF419D675B5 /* ofxAVUIEmpty.cpp in Sources */,
+				DC03625DEACDA5A83114FB37 /* ofxAVUIRangeSlider.cpp in Sources */,
+				4DFA1E345C3C74880C3BFF37 /* ofxAVUISlider.cpp in Sources */,
+				9D0946EDFC36FDAA66E8697E /* ofxAVUIToggle.cpp in Sources */,
+				FC30F1E5AC28A6D0E46C09D7 /* ofxAVUIXYCanvas.cpp in Sources */,
+				C19BAC2B1AEBCD4E63E54CA1 /* ofxAVUIXYPad.cpp in Sources */,
+				D5C24F69F7E7C3FA5FED708B /* ofxAVUIVisualBars.cpp in Sources */,
+				D884B0747F00654A6CC2F40C /* ofxAVUIVisualBase.cpp in Sources */,
+				7F2974D15259295C606877E1 /* ofxAVUIVisualCircles.cpp in Sources */,
+				6AC13132092AB85DE61A0E73 /* ofxAVUIVisualGrid.cpp in Sources */,
+				971D444320878C450E4A89E9 /* ofxAVUIVisualImage.cpp in Sources */,
+				F243A4D87BF16C7441721F6B /* ofxAVUIVisualLissajous.cpp in Sources */,
+				89F950D3258358D64801996C /* ofxAVUIVisualWave.cpp in Sources */,
+				0FCED26D40D46CF89A58E54C /* fft.cpp in Sources */,
+				5C4A4AA5D4784DF23EA43038 /* maxiAtoms.cpp in Sources */,
+				ABA8875AF0C06690CC0B92B1 /* maxiBark.cpp in Sources */,
+				96084990AF216648B8B98E00 /* maxiFFT.cpp in Sources */,
+				AF0580829426DC6BCA135A5C /* maxiGrains.cpp in Sources */,
+				0B5F1C701C973760006ACAB6 /* ofxAVUIMFCC.cpp in Sources */,
+				083FB2094A4DE99F5A60397A /* maxiMFCC.cpp in Sources */,
+				22F21CE3B902225374BA1CA2 /* maximilian.cpp in Sources */,
+				9514C2D90467055B1447D074 /* stb_vorbis.c in Sources */,
+				0B5F1C6F1C973760006ACAB6 /* ofxAVUIFFT.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4EEB9AC138B136A00A80321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = openFrameworks;
+			targetProxy = E4EEB9AB138B136A00A80321 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E4B69B4E0A3A1720003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxAVUI/src,
+					../../../addons/ofxAVUI/src/UI,
+					../../../addons/ofxAVUI/src/audio,
+					../../../addons/ofxAVUI/src/visual,
+					../../../addons/ofxMaxim/libs,
+					../../../addons/ofxMaxim/src,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E4B69B4F0A3A1720003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxAVUI/src,
+					../../../addons/ofxAVUI/src/UI,
+					../../../addons/ofxAVUI/src/audio,
+					../../../addons/ofxAVUI/src/visual,
+					../../../addons/ofxMaxim/libs,
+					../../../addons/ofxMaxim/src,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-D__MACOSX_CORE__",
+					"-mtune=native",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E4B69B600A3A1757003C02F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxAVUI/src,
+					../../../addons/ofxAVUI/src/UI,
+					../../../addons/ofxAVUI/src/audio,
+					../../../addons/ofxAVUI/src/visual,
+					../../../addons/ofxMaxim/libs,
+					../../../addons/ofxMaxim/src,
+				);
+				ICON = "$(ICON_NAME_DEBUG)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.openFrameworks.ofapp;
+				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4B69B610A3A1757003C02F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxAVUI/src,
+					../../../addons/ofxAVUI/src/UI,
+					../../../addons/ofxAVUI/src/audio,
+					../../../addons/ofxAVUI/src/visual,
+					../../../addons/ofxMaxim/libs,
+					../../../addons/ofxMaxim/src,
+				);
+				ICON = "$(ICON_NAME_RELEASE)";
+				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
+				INFOPLIST_FILE = "openFrameworks-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.openFrameworks.ofapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "example-FFT_MFCC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B4E0A3A1720003C02F2 /* Debug */,
+				E4B69B4F0A3A1720003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "example-FFT_MFCC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B69B600A3A1757003C02F2 /* Debug */,
+				E4B69B610A3A1757003C02F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4B69B4C0A3A1720003C02F2 /* Project object */;
+}
