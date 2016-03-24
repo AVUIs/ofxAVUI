@@ -73,8 +73,6 @@ public:
     static const string VOLUME;
     static const string PITCH;
     static const string TOGGLE_LOOPING;
-    static const string TRIGGER_LOOPING;
-    static const string TOGGLE_PLAY;
     static const string TRIGGER_PLAY;
     
 

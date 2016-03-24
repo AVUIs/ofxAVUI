@@ -11,8 +11,6 @@ const string ofxAVUIZone::DEV_NULL = "null";
 const string ofxAVUIZone::VOLUME = "volume";
 const string ofxAVUIZone::PITCH = "pitch";
 const string ofxAVUIZone::TOGGLE_LOOPING = "toggleLooping";
-const string ofxAVUIZone::TRIGGER_LOOPING = "triggerLooping";
-const string ofxAVUIZone::TOGGLE_PLAY = "togglePlay";
 const string ofxAVUIZone::TRIGGER_PLAY = "triggerPlay";
 
 ofxAVUIZone::ofxAVUIZone() {
@@ -54,7 +52,7 @@ ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColo
     soundProperties.add(trigger.set(TRIGGER_PLAY, false));
     trigger.addListener(this,&ofxAVUIZone::triggerReceived);
 
-    soundProperties.add(toggle.set(TOGGLE_PLAY, false));
+    soundProperties.add(toggle.set(TRIGGER_PLAY, false));
     toggle.addListener(this,&ofxAVUIZone::toggleReceived);
 
     loaded = true;
