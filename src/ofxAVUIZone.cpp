@@ -107,7 +107,7 @@ void ofxAVUIZone::update() {
 void ofxAVUIZone::draw() {
     if (!synced) syncParameters();
     ofPushStyle();
-    ofSetLineWidth(2);
+    ofSetLineWidth(1);
     for(std::size_t i = 0; i < uis.size(); i++){
         uis[i]->draw();
     }

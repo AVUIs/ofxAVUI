@@ -24,9 +24,10 @@ void ofxAVUIFFT::draw(float * buffer, float amplitude){
         
         mfft.process(buffer[i]);
         float y2 = mfft.magnitudes[i] * (shape.height)/3;
-        float rectWidth = shape.width/512;
+        float rectWidth = shape.width/512*2;
         x = i*rectWidth;
-        ofDrawRectangle(x, 0, rectWidth, y2);
+        ofDrawRectangle(x, shape.height/2, rectWidth, y2);
+        ofDrawRectangle(x, shape.height/2, rectWidth, -y2);
     }
     ofPopStyle();
     

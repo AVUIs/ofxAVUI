@@ -21,7 +21,7 @@ void ofApp::setup(){
     
     //ZONE 0 SETUP
     //parameters: name, x, y, width, background color, foreground color, sound filename, sound buffer size
-    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
+    zones[0].setup("zone1", 50, 100, 400, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "sound.wav", bufferSize);
     //ZONE 0 UI
     //pad parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name, y parameter name
     
@@ -49,11 +49,11 @@ void ofApp::setup(){
 
     
     ofxAVUIFFT *visual1 = new ofxAVUIFFT(bufferSize);
-    zones[0].addVisual(visual1, ofColor(0,0,255));
+    zones[0].addVisual(visual1, ofColor(0,0,255,230));
     
     
     //ZONE 1 SETUP
-    zones[1].setup("zone2", 300, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
+    zones[1].setup("zone2", 500, 100, 400, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
     //ZONE 1 UI
     ofxAVUIEmpty *empty1 = new ofxAVUIEmpty("Empty");
     zones[1].addUI(empty1, 50);
@@ -72,7 +72,7 @@ void ofApp::setup(){
 
     
     ofxAVUIMFCC *visual2 =  new ofxAVUIMFCC(bufferSize);
-    zones[1].addVisual(visual2, ofColor(0,0,255));
+    zones[1].addVisual(visual2, ofColor(255,0,0,230));
     
     //START SOUND
     ofSoundStreamSetup(2,2,this, sampleRate, bufferSize, 4); /* this has to happen at the end of setup*/
@@ -92,8 +92,8 @@ void ofApp::draw(){
     int coordX = ofMap(x, x.getMin(), x.getMax(), 0, ofGetWidth());
     ofParameter<float> y = zones[0].getParamValueFloat("pitch");
     int coordY = ofMap(y, y.getMin(), y.getMax(), 0, ofGetHeight());
-    ofDrawLine(coordX, 0, coordX, ofGetHeight());
-    ofDrawLine(0, coordY, ofGetWidth(), coordY);
+    //ofDrawLine(coordX, 0, coordX, ofGetHeight());
+    //ofDrawLine(0, coordY, ofGetWidth(), coordY);
 
     //DRAW ZONES
     for (int k=0; k<4; k++) {

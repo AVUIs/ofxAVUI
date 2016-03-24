@@ -49,7 +49,7 @@ void ofxAVUIRangeSlider::draw(){
     ofNoFill();
     drawContour();
     drawTitle();
-    ofFill();
+    //ofFill();
     ofSetColor(fgColor, 196);
 //    ofDrawRectangle(x1-shape.x, 0, x2-x1, shape.height);  //cursor
     ofDrawRectangle(x1, shape.y, x2-x1, shape.height);  //cursor

@@ -26,10 +26,11 @@ void ofxAVUIMFCC::draw(float * buffer, float amplitude){
         
         mfft.process(buffer[i]);
         mfcc.mfcc(mfft.magnitudes, mfccs);
-        float y2 = mfccs[i] * 100;
+        float y2 = mfccs[i] * 100 *2;//2 is an arbitrary multiplier
         float rectWidth = shape.width/13;
         x = i*rectWidth;
-        ofDrawRectangle(x, 0, rectWidth, y2);
+        ofDrawRectangle(x, shape.height/2, rectWidth, y2);
+        ofDrawRectangle(x, shape.height/2, rectWidth, -y2);
     }
     ofPopStyle();
 
