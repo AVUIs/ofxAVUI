@@ -22,7 +22,7 @@ void ofApp::setup(){
     
     //ZONE 0 SETUP
     //parameters: name, x, y, width, background color, foreground color, sound filename, sound buffer size
-    zones[0].setup("zone1", 50, 100, 300, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
+    zones[0].setup("zone1", 50, 100, 550, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
     //ZONE 0 UI
     //pad parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name, y parameter name
     ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", "triggerPlay",  "toggleLooping", "volume", "pitch");
@@ -42,7 +42,7 @@ void ofApp::setup(){
     zones[0].addVisual(visual1, ofColor(0,0,255));
 
     //ZONE 1 SETUP
-    zones[1].setup("zone2", 400, 150, 300, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
+    zones[1].setup("zone2", 700, 100, 550, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
     //ZONE 1 UI
     ofxAVUIXYPad *pad2 = new ofxAVUIXYCanvas("Canvas", "triggerPlay", "triggerPlay", "pitch", "volume", "211px-2006-01-14_Surface_waves.jpg");
     zones[1].addUI(pad2, 100);
@@ -56,7 +56,7 @@ void ofApp::setup(){
     //ZONE 1 AUDIO EFFECTS
     //empty
     //ZONE 1 VISUALS
-    ofxAVUIVisualBars *visual2 = new ofxAVUIVisualBars(5);
+    ofxAVUIVisualBars *visual2 = new ofxAVUIVisualBars(25);
     zones[1].addVisual(visual2, ofColor(255,0,0));
 
     /*
