@@ -25,14 +25,14 @@ void ofApp::setup(){
     //ZONE 0 UI
     //pad parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name, y parameter name
     
-    ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", ofxAVUIZone::TRIGGER_PLAY,  ofxAVUIZone::TRIGGER_LOOPING, ofxAVUIZone::VOLUME, ofxAVUIZone::PITCH);
+    ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", ofxAVUIZone::TRIGGER_PLAY,  ofxAVUIZone::TOGGLE_LOOPING, ofxAVUIZone::VOLUME, ofxAVUIZone::PITCH);
     //pad additional parameter: height
     zones[0].addUI(pad1, 150);
     //toggle parameters: caption, toggle (double tap) parameter name
     ofxAVUIToggle *toggle1 = new ofxAVUIToggle("Looping", ofxAVUIZone::TOGGLE_LOOPING);
     zones[0].addUI(toggle1, 100);
     //button parameters: caption, trigger (single tap) parameter name
-    ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", ofxAVUIZone::TOGGLE_PLAY);
+    ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", ofxAVUIZone::TRIGGER_PLAY);
     zones[0].addUI(button1, 100);
     
     zones[0].addParameterFloat("hueMin", 0,255,200);
