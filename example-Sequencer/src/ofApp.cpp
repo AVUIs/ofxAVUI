@@ -103,7 +103,7 @@ void ofApp::update(){
         bool isOn = zoneSequencer.getParamValueBool(sequencerTogglePrefix+ofToString(currentSequencerStep));
         
         if(zoneSequencer.getParamValueBool(playbackParamName))
-            zoneSequencer.getParamValueBool(ofxAVUIZone::TOGGLE_PLAY) = isOn;
+            zoneSequencer.getParamValueBool(ofxAVUIZone::TRIGGER_PLAY) = isOn;
         
         now = millis;
     }
