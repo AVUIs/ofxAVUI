@@ -21,6 +21,8 @@ ofxAVUIZone::ofxAVUIZone() {
     shape.height = 0;
     loaded = false;
     synced = false;
+    takenOver = false;
+    uiTakingOver = -1;
 }
 
 ofxAVUIZone::~ofxAVUIZone() {
@@ -87,6 +89,20 @@ void ofxAVUIZone::loopingChanged(bool & _looping){
 }
 
 void ofxAVUIZone::update() {
+    takenOver = false;
+    uiTakingOver = -1;
+    for(std::size_t i = 0; i < uis.size(); i++){
+        if (uis[i]->takingOver()) {
+            takenOver = true;
+            uiTakingOver = i;
+            uisUnregisterMouse(i);
+            uis[i]->setTakeoverPosition(shape.x, shape.y, shape.width, shape.height);
+            break;
+        }
+    }
+    if (!takenOver) {
+        uisRegisterMouse();
+    }
 }
 
 //void ofxAVUIZone::drawVisuals() {
@@ -106,8 +122,12 @@ void ofxAVUIZone::draw() {
     if (!synced) syncParameters();
     ofPushStyle();
     ofSetLineWidth(1);
-    for(std::size_t i = 0; i < uis.size(); i++){
-        uis[i]->draw();
+    if (takenOver) {
+        uis[uiTakingOver]->draw();
+    } else {
+        for(std::size_t i = 0; i < uis.size(); i++){
+            uis[i]->draw();
+        }
     }
     FBO.begin();
         ofClear(255,255,255, 0);
@@ -134,6 +154,18 @@ void ofxAVUIZone::syncParameters() {
     FBO.allocate(shape.width, shape.height, GL_RGBA);    //doing this here so we do it just once
     FBO.setUseTexture(true);
     synced = true;
+}
+
+void ofxAVUIZone::uisUnregisterMouse(int _exception) {
+    for(std::size_t i = 0; i < uis.size(); i++){
+        if (i!=_exception) uis[i]->unregisterMouse();
+    }
+}
+
+void ofxAVUIZone::uisRegisterMouse() {
+    for(std::size_t i = 0; i < uis.size(); i++){
+        uis[i]->registerMouse();
+    }
 }
 
 ofParameter<float> ofxAVUIZone::getParamValueFloat(string _param) {

@@ -35,6 +35,10 @@ void ofApp::setup(){
     //button parameters: caption, trigger (single tap) parameter name
     ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", "triggerPlay");
     zones[0].addUI(button1, 100);
+    //dropdown parameters: caption, trigger (single tap) parameter name
+    ofxAVUIDropDown *dropdown1 = new ofxAVUIDropDown("DropDown", "selection");
+    zones[0].addUI(dropdown1, 50);
+    for(int i=0;i<100;i++) dropdown1->addItem("Item " + ofToString(i));
     //ZONE 0 AUDIO EFFECTS
     //empty
     //ZONE 0 VISUALS
@@ -96,6 +100,10 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    //UPDATE ZONES
+    for (int k=0; k<3; k++) {
+        zones[k].update();
+    }
 }
 
 //--------------------------------------------------------------

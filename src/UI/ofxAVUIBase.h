@@ -17,11 +17,15 @@ public:
     virtual ~ofxAVUIBase();
     virtual void setPosition(int _x, int _y, int _width, int _height);
     ofRectangle  getPosition();
+    void setTakeoverPosition(int _x, int _y, int _width, int _height);
     void setColor(ofColor _bgColor, ofColor _fgColor);
     void setTitle(string _title);
     void bindProperties(ofParameterGroup *_soundProperties);
     void drawContour(); //specific ofxAVUI contour shape
     void drawTitle();
+    bool takingOver();
+    void unregisterMouse();
+    void registerMouse();
     virtual void update() {};
     virtual void draw() = 0;
     
@@ -35,11 +39,12 @@ public:
 
 protected:
     ofRectangle         getBitmapStringBoundingBox(string text);
-    ofRectangle         shape;
+    ofRectangle         shape, takeoverShape;
     ofColor             bgColor, fgColor;
     string              title;
     ofParameterGroup   *soundProperties;
     bool                synced;
+    bool                takeover;   //TRUE => this UI takes over the whole Zone
 };
 
 #endif /* ofxAVUIBase_h */

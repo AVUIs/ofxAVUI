@@ -8,12 +8,15 @@
 #include "ofxAVUIBase.h"
 
 ofxAVUIBase::ofxAVUIBase(){
-    ofRegisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+    registerMouse();
     synced = false;
+    takeover = false;
+    shape = ofRectangle(0,0,0,0);
+    takeoverShape = ofRectangle(0,0,0,0);
 }
 
 ofxAVUIBase::~ofxAVUIBase(){
-	ofUnregisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+    unregisterMouse();
 }
 
 void ofxAVUIBase::setPosition(int _x, int _y, int _width, int _height) {
@@ -27,6 +30,25 @@ ofRectangle ofxAVUIBase::getPosition() {
     return shape;
 }
 
+void ofxAVUIBase::setTakeoverPosition(int _x, int _y, int _width, int _height) {
+    takeoverShape.x = _x;
+    takeoverShape.y = _y;
+    takeoverShape.width = _width;
+    takeoverShape.height = _height;
+}
+
+bool ofxAVUIBase::takingOver() {
+    return takeover;
+}
+
+void ofxAVUIBase::unregisterMouse() {
+	ofUnregisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+}
+
+void ofxAVUIBase::registerMouse() {
+    ofRegisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+}
+
 void ofxAVUIBase::setColor(ofColor _bgColor, ofColor _fgColor) {
     bgColor = _bgColor;
     fgColor = _fgColor;
@@ -38,14 +60,15 @@ void ofxAVUIBase::bindProperties(ofParameterGroup *_soundProperties) {
 
 void ofxAVUIBase::drawContour() {
     //<contours>
-    ofDrawLine(shape.x,shape.y,shape.x+shape.width*0.25,shape.y);
-    ofDrawLine(shape.x+shape.width*0.75,shape.y,shape.x+shape.width,shape.y);
-    ofDrawLine(shape.x,shape.y+shape.height,shape.x+shape.width*0.25,shape.y+shape.height);
-    ofDrawLine(shape.x+shape.width*0.75,shape.y+shape.height,shape.x+shape.width,shape.y+shape.height);
-    ofDrawLine(shape.x,shape.y,shape.x,shape.y+shape.height*0.25);
-    ofDrawLine(shape.x+shape.width,shape.y,shape.x+shape.width,shape.y+shape.height*0.25);
-    ofDrawLine(shape.x,shape.y+shape.height*0.75,shape.x,shape.y+shape.height);
-    ofDrawLine(shape.x+shape.width,shape.y+shape.height*0.75,shape.x+shape.width,shape.y+shape.height);
+    ofRectangle activeShape = (takeover?takeoverShape:shape);
+    ofDrawLine(activeShape.x,activeShape.y,activeShape.x+activeShape.width*0.25,activeShape.y);
+    ofDrawLine(activeShape.x+activeShape.width*0.75,activeShape.y,activeShape.x+activeShape.width,activeShape.y);
+    ofDrawLine(activeShape.x,activeShape.y+activeShape.height,activeShape.x+activeShape.width*0.25,activeShape.y+activeShape.height);
+    ofDrawLine(activeShape.x+activeShape.width*0.75,activeShape.y+activeShape.height,activeShape.x+activeShape.width,activeShape.y+activeShape.height);
+    ofDrawLine(activeShape.x,activeShape.y,activeShape.x,activeShape.y+activeShape.height*0.25);
+    ofDrawLine(activeShape.x+activeShape.width,activeShape.y,activeShape.x+activeShape.width,activeShape.y+activeShape.height*0.25);
+    ofDrawLine(activeShape.x,activeShape.y+activeShape.height*0.75,activeShape.x,activeShape.y+activeShape.height);
+    ofDrawLine(activeShape.x+activeShape.width,activeShape.y+activeShape.height*0.75,activeShape.x+activeShape.width,activeShape.y+activeShape.height);
     //</contours>
 
 /*    //<contours>
@@ -66,7 +89,8 @@ void ofxAVUIBase::drawTitle() {
 //    ofRectangle titleBounds = getBitmapStringBoundingBox(title);
 //    ofDrawBitmapString(title, shape.x + shape.width/2 - titleBounds.width/2, 0 + shape.height/2 - titleBounds.height/2 + 10);
 //lover left, fbo
-    ofDrawBitmapString(title, shape.x + 5, shape.y + shape.height - 5);
+    ofRectangle activeShape = (takeover?takeoverShape:shape);
+    ofDrawBitmapString(title, activeShape.x + 5, activeShape.y + activeShape.height - 5);
 }
 
 ofRectangle ofxAVUIBase::getBitmapStringBoundingBox(string text){

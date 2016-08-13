@@ -19,6 +19,7 @@
 #include "ofxAVUIEmpty.h"
 #include "ofxAVUISlider.h"
 #include "ofxAVUIRangeSlider.h"
+#include "ofxAVUIDropDown.h"
 
 #include "ofxAVUIVisualBase.h"
 #include "ofxAVUIVisualWave.h"
@@ -61,7 +62,11 @@ public:
 
     void addVisual(ofxAVUIVisualBase * _element, ofColor visColor);
     ofTexture &getVisualTexture();
-    
+
+    //takeover
+    void uisUnregisterMouse(int _exception);
+    void uisRegisterMouse();
+
     //parameters
     void addParameterFloat(string _paramName, float _min, float _max, float _value);
     void addParameterBool(string _paramName, bool _val);
@@ -79,6 +84,8 @@ public:
 private:
     bool                loaded;     //zone and sound initialised
     bool                synced;     //UI synced with parameters, happend at 1st draw
+    bool                takenOver;
+    int                 uiTakingOver;
     ofRectangle         shape;      
     string              name;
     ofxAVUIZonePlayer   player;
