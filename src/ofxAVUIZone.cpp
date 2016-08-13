@@ -12,6 +12,7 @@ const string ofxAVUIZone::VOLUME = "volume";
 const string ofxAVUIZone::PITCH = "pitch";
 const string ofxAVUIZone::TOGGLE_LOOPING = "toggleLooping";
 const string ofxAVUIZone::TRIGGER_PLAY = "triggerPlay";
+const string ofxAVUIZone::SELECTION = "selection";
 
 ofxAVUIZone::ofxAVUIZone() {
     name = "";
@@ -57,7 +58,15 @@ ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColo
     soundProperties.add(toggle.set(TRIGGER_PLAY, false));
     toggle.addListener(this,&ofxAVUIZone::toggleReceived);
 
+    soundProperties.add(selection.set(SELECTION, -1, -1, 10000));
+    selection.addListener(this,&ofxAVUIZone::selectionReceived);
+
     loaded = true;
+}
+
+void ofxAVUIZone::loadSound(string _sound, int _bufferSize) {
+    player.reset();
+    player.sound.load(_sound);  //avoid player.setup() as that resets all parameters, bringing them out of sync with UI
 }
 
 void ofxAVUIZone::addSoundFx(ofxAVUISoundFxBase * _fxElement) {
@@ -87,6 +96,11 @@ void ofxAVUIZone::toggleReceived(bool &_toggle){
 void ofxAVUIZone::loopingChanged(bool & _looping){
     player.looping = !player.looping;
 }
+
+void ofxAVUIZone::selectionReceived(int &_selection){
+    cout << "selection -> " << selection << endl;
+}
+
 
 void ofxAVUIZone::update() {
     takenOver = false;
@@ -174,6 +188,10 @@ ofParameter<float> ofxAVUIZone::getParamValueFloat(string _param) {
 
 ofParameter<bool> ofxAVUIZone::getParamValueBool(string _param) {
     return soundProperties.getBool(_param);
+}
+
+ofParameter<int> ofxAVUIZone::getParamValueInt(string _param) {
+    return soundProperties.getInt(_param);
 }
 
 void ofxAVUIZone::play(int pos) {

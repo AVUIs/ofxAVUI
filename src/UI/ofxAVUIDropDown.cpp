@@ -26,12 +26,17 @@ void ofxAVUIDropDown::resetItems() {
 }
 
 void ofxAVUIDropDown::addItem(string _item) {
+    int maxWidthChar = (shape.width-30) / getBitmapStringBoundingBox("8").width;
+    if (_item.length() > maxWidthChar) _item = _item.substr(0, maxWidthChar-1) + "..";
     items.push_back(_item);
-    if (selection<0) selection = 0;
+    if (selection<0) selection = 0;   //do we need to set default selection?
 }
 
 void ofxAVUIDropDown::draw(){
-    if (takeover) {
+    if (takeover && takeoverShape.x==0 && takeoverShape.y==0 && takeoverShape.width==0 && takeoverShape.height==0) {
+        cout << "WARNING: Takeover not possible without zone.update() invoked before zone.draw()" << endl;
+        takeover = false;
+    } else if (takeover) {
         ofPushStyle();
         ofSetColor(bgColor);
         ofDrawRectangle(takeoverShape.x,takeoverShape.y,takeoverShape.width,takeoverShape.height);
@@ -114,6 +119,7 @@ void ofxAVUIDropDown::mouseReleased(ofMouseEventArgs & args) {
             if ((currentPage==numPages-1) && items.size()%itemsPerPage > 0) itemsCount = items.size()%itemsPerPage;
             for (int i=0;i<itemsCount;i++) if (ofRectangle(takeoverShape.x, takeoverShape.y + itemHeight*1.2 + itemHeight*i, takeoverShape.width, itemHeight).inside(args.x, args.y)) {
                 selection = i+currentPage*itemsPerPage;
+                soundProperties->getInt(paramSelection) = selection;
                 takeover = false;
             }
         }

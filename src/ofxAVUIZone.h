@@ -40,7 +40,7 @@ public:
 	ofxAVUIZone();
 	~ofxAVUIZone();
     //zone is defined by position and width in pixels, the UI and visual elements are then stacked down from position
-    ofxAVUIZone* setup(string _name, int _x, int _y, int _width, ofColor _backgroundColor, ofColor _foregroundColor, string _sound, int _bufferSize);
+    ofxAVUIZone* setup(string _name, int _x, int _y, int _width, ofColor _backgroundColor, ofColor _foregroundColor, string _sound, int _bufferSize);   //why is this function not void??
     void update();
     void draw();
     
@@ -51,8 +51,10 @@ public:
     void loopingChanged(bool &_looping);
     void triggerReceived(bool &_trigger);
     void toggleReceived(bool &_toggle);
+    void selectionReceived(int &_selection);
 
     //sound
+    void loadSound(string _sound, int _bufferSize);
     void play(int pos);
     void addSoundFx(ofxAVUISoundFxBase * _fxElement);
     double getOutput(int channel);
@@ -73,12 +75,14 @@ public:
     void syncParameters();    //sync UI with parameters
     ofParameter<float> getParamValueFloat(string _param);
     ofParameter<bool> getParamValueBool(string _param);
+    ofParameter<int> getParamValueInt(string _param);
     
     static const string DEV_NULL;
     static const string VOLUME;
     static const string PITCH;
     static const string TOGGLE_LOOPING;
     static const string TRIGGER_PLAY;
+    static const string SELECTION;
     
 
 private:
@@ -92,7 +96,7 @@ private:
     ofColor             fgColor, bgColor;
     ofFbo               FBO;
     //properties
-    ofParameter<char>       devNull; //we don't use first parameter in the group, as it is returned by parameterGroup->get(param1) whenever param1 doesn't match any of the parameter namess
+    ofParameter<char>   devNull; //we don't use first parameter in the group, as it is returned by parameterGroup->get(param1) whenever param1 doesn't match any of the parameter namess
     ofParameter<float>  pitch; //speed;
     ofParameter<float>  volume; //amplitude;
     ofParameter<bool>   looping;
@@ -102,6 +106,7 @@ private:
     ofParameter<float>  resonance;
     ofParameter<float>  size;
     ofParameter<float>  feedback;
+    ofParameter<int>    selection;
     ofParameterGroup    soundProperties;
     
     std::vector <ofxAVUIBase *> uis;

@@ -25,6 +25,12 @@ void ofxAVUIZonePlayer::setup(string _sound, int bufferSize){
     sampleOut = 0;
 }
 
+void ofxAVUIZonePlayer::reset(){
+    sound.clear();
+    sound.reset();      //reset position to start as we dont know the upcoming sound's size
+//    playing = false;  //keep playing
+}
+
 void ofxAVUIZonePlayer::addSoundFx(ofxAVUISoundFxBase * _fxElement) {
     fxs.push_back(_fxElement);
 }

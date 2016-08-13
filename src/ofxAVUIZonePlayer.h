@@ -25,6 +25,7 @@ class ofxAVUIZonePlayer {
         void filter(float _val1, float _val2);
         void delay(float _val1, float _val2);
         void play(int pos, double pan);
+        void reset();
 
         void addSoundFx(ofxAVUISoundFxBase * _fxElement);
         void sendValue(string _param, float _val);
