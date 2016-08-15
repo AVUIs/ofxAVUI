@@ -20,10 +20,15 @@ void ofApp::setup(){
         ofxiOSGetGLView().frame.size.width != [[UIScreen mainScreen] bounds].size.width) {
         ofxiOSGetGLView().frame = CGRectMake(0,0,[[UIScreen mainScreen] bounds].size.width,[[UIScreen mainScreen] bounds].size.height);
     }
+
+    //CHECK FILES IN DOCUMENTS DIR
+    numFiles = DIR.listDir(ofxiPhoneGetDocumentsDirectory());
+    for (int i=0;i<NUM_ZONES;i++) files[i] = 0;
     
     //ZONE 0 SETUP
     //parameters: name, x, y, width, background color, foreground color, sound filename, sound buffer size
-    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
+//    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
+    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), DIR.getPath(files[0]), bufferSize);
     //ZONE 0 UI
     //pad parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name, y parameter name
     ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", "triggerPlay",  "toggleLooping", "volume", "pitch");
@@ -35,10 +40,11 @@ void ofApp::setup(){
     //button parameters: caption, trigger (single tap) parameter name
     ofxAVUIButton *button1 = new ofxAVUIButton("Trigger", "triggerPlay");
     zones[0].addUI(button1, 100);
-    //dropdown parameters: caption, trigger (single tap) parameter name
+    //dropdown parameters: caption (curently not displayed), trigger (single tap) parameter name
     ofxAVUIDropDown *dropdown1 = new ofxAVUIDropDown("DropDown", "selection");
     zones[0].addUI(dropdown1, 50);
-    for(int i=0;i<100;i++) dropdown1->addItem("Item " + ofToString(i));
+    for(int i=0;i<numFiles;i++) dropdown1->addItem(DIR.getName(i));
+
     //ZONE 0 AUDIO EFFECTS
     //empty
     //ZONE 0 VISUALS
@@ -46,7 +52,8 @@ void ofApp::setup(){
     zones[0].addVisual(visual1, ofColor(0,0,255));
 
     //ZONE 1 SETUP
-    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
+//    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
+    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), DIR.getPath(files[1]), bufferSize);
     //ZONE 1 UI
     ofxAVUIEmpty *empty1 = new ofxAVUIEmpty("Empty");
     zones[1].addUI(empty1, 50);
@@ -59,6 +66,9 @@ void ofApp::setup(){
     zones[1].addUI(slider1, 100);
     ofxAVUIToggle *toggle2 = new ofxAVUIToggle("Looping", "toggleLooping");
     zones[1].addUI(toggle2, 50);
+    ofxAVUIDropDown *dropdown2 = new ofxAVUIDropDown("DropDown", "selection");
+    zones[1].addUI(dropdown2, 50);
+    for(int i=0;i<numFiles;i++) dropdown2->addItem(DIR.getName(i));
     //ZONE 1 AUDIO EFFECTS
     //empty
     //ZONE 1 VISUALS
@@ -66,7 +76,8 @@ void ofApp::setup(){
     zones[1].addVisual(visual2, ofColor(255,0,0));
 
     //ZONE 2 SETUP
-    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), "bass.wav", bufferSize);
+//    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), "bass.wav", bufferSize);
+    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), DIR.getPath(files[2]), bufferSize);
     //ZONE 2 UI
     ofxAVUIXYPad *pad3 = new ofxAVUIXYPad("Pad", "triggerPlay", "triggerPlay", "pitch", "volume");
     zones[2].addUI(pad3, 100);
@@ -78,6 +89,9 @@ void ofApp::setup(){
     zones[2].addUI(pad5, 100);
     ofxAVUIToggle *toggle4 = new ofxAVUIToggle("Delay Toggle", "delayToggle");
     zones[2].addUI(toggle4, 50);
+    ofxAVUIDropDown *dropdown3 = new ofxAVUIDropDown("DropDown", "selection");
+    zones[2].addUI(dropdown3, 100);
+    for(int i=0;i<numFiles;i++) dropdown3->addItem(DIR.getName(i));
     //ZONE 2 AUDIO EFFECTS
     ofxAVUISoundFxFilter *filter1 = new ofxAVUISoundFxFilter();
     //sound fx parameters:
@@ -95,14 +109,19 @@ void ofApp::setup(){
 
     //START SOUND
     ofSoundStreamSetup(2,2,this, sampleRate, bufferSize, 4); /* this has to happen at the end of setup*/
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    //UPDATE ZONES
+    //UPDATE ZONES = only needed for takeover UIs (curently ofxAVUIDropDown)
     for (int k=0; k<3; k++) {
         zones[k].update();
+        if (zones[k].getParamValueInt("selection")!=-1 && zones[k].getParamValueInt("selection")!=files[k]) {
+            files[k] = zones[k].getParamValueInt("selection");
+            cout << "BUM " << files[k] << endl;
+            zones[k].loadSound(DIR.getPath(files[k]), bufferSize);
+        }
     }
 }
 
@@ -157,7 +176,7 @@ void ofApp::audioIn(float * input, int bufferSize, int nChannels){
 
 //--------------------------------------------------------------
 void ofApp::touchDown(ofTouchEventArgs &touch){
-    
+    cout << touch.id << endl;
 }
 
 //--------------------------------------------------------------

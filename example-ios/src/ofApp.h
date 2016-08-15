@@ -5,6 +5,7 @@
 #include "ofxMaxim.h" 
 #include "ofxAVUI.h"
 
+#define NUM_ZONES 3
 class ofApp : public ofxiOSApp {
 	
 public:
@@ -37,8 +38,11 @@ public:
     int		sampleRate;
     
     //ofxAVUI
-    ofxAVUIZone     zones[3];
+    ofxAVUIZone     zones[NUM_ZONES];
 
+    ofDirectory     DIR;
+    int             numFiles;
+    int             files[NUM_ZONES];
 
 };
 

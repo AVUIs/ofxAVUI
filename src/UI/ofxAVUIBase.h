@@ -17,7 +17,7 @@ public:
     virtual ~ofxAVUIBase();
     virtual void setPosition(int _x, int _y, int _width, int _height);
     ofRectangle  getPosition();
-    void setTakeoverPosition(int _x, int _y, int _width, int _height);
+    virtual void setTakeoverPosition(int _x, int _y, int _width, int _height);
     void setColor(ofColor _bgColor, ofColor _fgColor);
     void setTitle(string _title);
     void bindProperties(ofParameterGroup *_soundProperties);

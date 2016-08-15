@@ -10,12 +10,25 @@
 ofxAVUIDropDown::ofxAVUIDropDown(string _title, string _paramSelection){
     title = _title;
     paramSelection = _paramSelection;
-    itemHeight = 30;
+    itemHeight = 35;
     resetItems();
 }
 
 ofxAVUIDropDown::~ofxAVUIDropDown(){
 
+}
+
+void ofxAVUIDropDown::setTakeoverPosition(int _x, int _y, int _width, int _height) {
+    takeoverShape.x = _x;
+    takeoverShape.y = _y;
+    takeoverShape.width = _width;
+    takeoverShape.height = _height;
+
+    int itemsPerHeight = takeoverShape.height / itemHeight;
+    itemHeight = takeoverShape.height / itemsPerHeight;
+    itemsPerPage = itemsPerHeight - 2;      //top and bottom items reserved for nav
+    numPages = items.size() / itemsPerPage;
+    if (items.size()%itemsPerPage > 0) numPages+=1;
 }
 
 void ofxAVUIDropDown::resetItems() {
@@ -25,11 +38,15 @@ void ofxAVUIDropDown::resetItems() {
     numPages = 0;
 }
 
+string ofxAVUIDropDown::fitString(string _stringToFit){
+    int maxWidthChar = (shape.width-10) / getBitmapStringBoundingBox("8").width;
+    if (_stringToFit.length() > maxWidthChar) _stringToFit = _stringToFit.substr(0, maxWidthChar-2) + "..";
+    return _stringToFit;
+}
+
 void ofxAVUIDropDown::addItem(string _item) {
-    int maxWidthChar = (shape.width-30) / getBitmapStringBoundingBox("8").width;
-    if (_item.length() > maxWidthChar) _item = _item.substr(0, maxWidthChar-1) + "..";
-    items.push_back(_item);
-    if (selection<0) selection = 0;   //do we need to set default selection?
+    items.push_back(fitString(_item));
+    if (selection<0) selection = 0;   //set default selection when at least 1 item added
 }
 
 void ofxAVUIDropDown::draw(){
@@ -42,43 +59,27 @@ void ofxAVUIDropDown::draw(){
         ofDrawRectangle(takeoverShape.x,takeoverShape.y,takeoverShape.width,takeoverShape.height);
         ofSetColor(fgColor);
         drawContour();
-//        drawTitle(); //no title for takover
         //current selection if any
-        ofDrawLine(takeoverShape.x + 15,
-                takeoverShape.y + (itemHeight+getBitmapStringBoundingBox("1").height)/2+4,
-                takeoverShape.x + shape.width - 15,
-                takeoverShape.y + (itemHeight+getBitmapStringBoundingBox("1").height)/2+4);
-        if (selection!=-1)
-            ofDrawBitmapString(items[selection],
-                    takeoverShape.x + 15,
-                    takeoverShape.y + (itemHeight+getBitmapStringBoundingBox("1").height)/2);
+        int mid = itemHeight/2 + getBitmapStringBoundingBox("1").height/2;
+        if (selection!=-1)  ofDrawBitmapString(fitString("< " + items[selection]), takeoverShape.x + 15, takeoverShape.y + mid);
+//        ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + shape.width, takeoverShape.y + itemHeight);
+            ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + itemHeight);
+            ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + itemHeight);
         //other items in current page
-        //this is recalucated every cycle, might move somewhere else..
-        itemsPerPage = (takeoverShape.height - 2*itemHeight) / itemHeight;
-        numPages = items.size() / itemsPerPage;
-        if (items.size()%itemsPerPage > 0) numPages+=1;
         int itemsCount = itemsPerPage;
         if ((currentPage==numPages-1) && items.size()%itemsPerPage > 0) itemsCount = items.size()%itemsPerPage;
         for(std::size_t i = 0; i < itemsCount; i++){
-            ofDrawBitmapString(items[i+currentPage*itemsPerPage],
-                    takeoverShape.x + 15,
-                    takeoverShape.y + (2+i)*itemHeight-(itemHeight-getBitmapStringBoundingBox("1").height)/2);
+            ofDrawBitmapString(items[i+currentPage*itemsPerPage], takeoverShape.x + 5, takeoverShape.y + (i+1)*itemHeight+mid);
+//            ofDrawLine(takeoverShape.x, takeoverShape.y + (i+2)*itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + (i+2)*itemHeight);
+//            ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + (i+2)*itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + (i+2)*itemHeight);
         }
-        
         //pages nav
-        ofDrawLine(takeoverShape.x + 15,
-                takeoverShape.y + takeoverShape.height-(itemHeight-getBitmapStringBoundingBox("1").height)/2-getBitmapStringBoundingBox("1").height-2,
-                takeoverShape.x + shape.width - 15,
-                takeoverShape.y + takeoverShape.height-(itemHeight-getBitmapStringBoundingBox("1").height)/2-getBitmapStringBoundingBox("1").height-2);
-        ofDrawBitmapString("<",
-                takeoverShape.x + 15,
-                takeoverShape.y + takeoverShape.height-(itemHeight-getBitmapStringBoundingBox("1").height)/2);
-        ofDrawBitmapString(">",
-                takeoverShape.x + takeoverShape.width-15-getBitmapStringBoundingBox(">").width,
-                takeoverShape.y + takeoverShape.height-(itemHeight-getBitmapStringBoundingBox("1").height)/2);
-        ofDrawBitmapString(ofToString(currentPage+1)+"/"+ofToString(numPages),
-                takeoverShape.x + (takeoverShape.width-getBitmapStringBoundingBox("8/8").width)/2,
-                takeoverShape.y + takeoverShape.height-(itemHeight-getBitmapStringBoundingBox("1").height)/2);
+//        ofDrawLine(takeoverShape.x, takeoverShape.y + (itemsPerPage+1)*itemHeight, takeoverShape.x + shape.width, takeoverShape.y + (itemsPerPage+1)*itemHeight);
+        ofDrawLine(takeoverShape.x, takeoverShape.y + (itemsPerPage+1)*itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + (itemsPerPage+1)*itemHeight);
+        ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + (itemsPerPage+1)*itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + (itemsPerPage+1)*itemHeight);
+        ofDrawBitmapString("<", takeoverShape.x + 15, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+        ofDrawBitmapString(">", takeoverShape.x + takeoverShape.width-15-getBitmapStringBoundingBox(">").width, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+        ofDrawBitmapString(ofToString(currentPage+1)+"/"+ofToString(numPages), takeoverShape.x + (takeoverShape.width-getBitmapStringBoundingBox("8/8").width)/2, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
         ofPopStyle();
     } else {
         ofPushStyle();
@@ -86,10 +87,9 @@ void ofxAVUIDropDown::draw(){
         ofDrawRectangle(shape.x,shape.y,shape.width,shape.height);
         ofSetColor(fgColor);
         drawContour();
-        drawTitle();
-        ofDrawLine(shape.x + 15, shape.y + shape.height/2+4, shape.x + shape.width - 15, shape.y + shape.height/2+4);
-        if (selection!=-1)
-            ofDrawBitmapString(items[selection], shape.x + 15, shape.y + shape.height/2);
+//        drawTitle();
+        ofDrawBitmapString(fitString("> " + items[selection]), shape.x + 15, shape.y + shape.height - 5);
+
         ofPopStyle();
     }
 }

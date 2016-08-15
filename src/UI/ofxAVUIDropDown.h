@@ -17,7 +17,9 @@ public:
     ofxAVUIDropDown() {};
     ofxAVUIDropDown(string _title, string _paramSelection);
     virtual ~ofxAVUIDropDown();
+    virtual void setTakeoverPosition(int _x, int _y, int _width, int _height);
     void addItem(string _item);
+    string fitString(string _stringToFit);
     void resetItems();
     void mouseMoved(ofMouseEventArgs & args);
     void mousePressed(ofMouseEventArgs & args);
@@ -31,7 +33,7 @@ private:
     string      paramSelection;
     std::vector <string> items;
     int         selection;
-    int         itemHeight;
+    float       itemHeight;
     int         currentPage;
     int         numPages;
     int         itemsPerPage;

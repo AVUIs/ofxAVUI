@@ -98,7 +98,7 @@ void ofxAVUIZone::loopingChanged(bool & _looping){
 }
 
 void ofxAVUIZone::selectionReceived(int &_selection){
-    cout << "selection -> " << selection << endl;
+//    cout << "selection -> " << selection << endl;
 }
 
 
