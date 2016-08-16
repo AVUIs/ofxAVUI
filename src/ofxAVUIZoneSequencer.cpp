@@ -57,6 +57,7 @@ void ofxAVUIZoneSequencer::draw(){
         ofPushStyle();
         //cursor
         float timeX = ofMap(counter, 0, SEQUENCE_DURATION-1, shape.x, shape.x + shape.width);
+        ofSetColor(255, 0, 0);
         ofDrawLine(timeX, shape.y, timeX, shape.y + shape.height);
         //points
         for(int i=0;i<eventList.size();i++){
@@ -100,7 +101,7 @@ void ofxAVUIZoneSequencer::mouseMoved(ofMouseEventArgs & args) {
     addEvent(args);
 }
 void ofxAVUIZoneSequencer::mouseDragged(ofMouseEventArgs & args) {
-    addEvent(args);
+//    addEvent(args);
 }
 void ofxAVUIZoneSequencer::mouseReleased(ofMouseEventArgs & args) {
     addEvent(args);

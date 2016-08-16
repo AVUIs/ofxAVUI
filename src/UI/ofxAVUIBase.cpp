@@ -71,6 +71,11 @@ void ofxAVUIBase::drawContour() {
     ofDrawLine(activeShape.x+activeShape.width,activeShape.y,activeShape.x+activeShape.width,activeShape.y+activeShape.height*0.25);
     ofDrawLine(activeShape.x,activeShape.y+activeShape.height*0.75,activeShape.x,activeShape.y+activeShape.height);
     ofDrawLine(activeShape.x+activeShape.width,activeShape.y+activeShape.height*0.75,activeShape.x+activeShape.width,activeShape.y+activeShape.height);
+    
+    ofDrawLine(activeShape.x,activeShape.y+activeShape.height/2,activeShape.x,activeShape.y+activeShape.height/2+1);
+    ofDrawLine(activeShape.x+activeShape.width,activeShape.y+activeShape.height/2,activeShape.x+activeShape.width,activeShape.y+activeShape.height/2+1);
+    ofDrawLine(activeShape.x+activeShape.width/2,activeShape.y,activeShape.x+activeShape.width/2+1,activeShape.y);
+    ofDrawLine(activeShape.x+activeShape.width/2,activeShape.y+activeShape.height,activeShape.x+activeShape.width/2+1,activeShape.y+activeShape.height);
     //</contours>
 
 /*    //<contours>

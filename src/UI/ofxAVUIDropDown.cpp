@@ -61,7 +61,7 @@ void ofxAVUIDropDown::draw(){
         drawContour();
         //current selection if any
         int mid = itemHeight/2 + getBitmapStringBoundingBox("1").height/2;
-        if (selection!=-1)  ofDrawBitmapString(fitString("< " + items[selection]), takeoverShape.x + 15, takeoverShape.y + mid);
+        if (selection!=-1)  ofDrawBitmapString(fitString("< " + items[selection]), takeoverShape.x + 5, takeoverShape.y + mid);
 //        ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + shape.width, takeoverShape.y + itemHeight);
             ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + itemHeight);
             ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + itemHeight);
@@ -88,7 +88,7 @@ void ofxAVUIDropDown::draw(){
         ofSetColor(fgColor);
         drawContour();
 //        drawTitle();
-        ofDrawBitmapString(fitString("> " + items[selection]), shape.x + 15, shape.y + shape.height - 5);
+        ofDrawBitmapString(fitString("> " + items[selection]), shape.x + 5, shape.y + shape.height - 5);
 
         ofPopStyle();
     }
