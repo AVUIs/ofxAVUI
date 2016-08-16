@@ -20,10 +20,11 @@ ofxAVUIBase::~ofxAVUIBase(){
 }
 
 void ofxAVUIBase::setPosition(int _x, int _y, int _width, int _height) {
-    shape.x = _x;
-    shape.y = _y;
-    shape.width = _width;
-    shape.height = _height;
+//    shape.x = _x;
+//    shape.y = _y;
+//    shape.width = _width;
+//    shape.height = _height;
+    shape = ofRectangle(_x, _y, _width, _height);
 }
 
 ofRectangle ofxAVUIBase::getPosition() {
@@ -31,10 +32,11 @@ ofRectangle ofxAVUIBase::getPosition() {
 }
 
 void ofxAVUIBase::setTakeoverPosition(int _x, int _y, int _width, int _height) {
-    takeoverShape.x = _x;
-    takeoverShape.y = _y;
-    takeoverShape.width = _width;
-    takeoverShape.height = _height;
+//    takeoverShape.x = _x;
+//    takeoverShape.y = _y;
+//    takeoverShape.width = _width;
+//    takeoverShape.height = _height;
+    takeoverShape = ofRectangle(_x, _y, _width, _height);
 }
 
 bool ofxAVUIBase::takingOver() {

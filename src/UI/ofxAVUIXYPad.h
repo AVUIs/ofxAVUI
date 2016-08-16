@@ -10,6 +10,8 @@
 
 #include "ofMain.h"
 #include "ofxAVUIBase.h"
+#include "ofxAVUIZoneSequencer.h"
+#include "ofxAVUIEvents.h"
 
 #define DOUBLECLICK_MILLIS 200
 
@@ -21,14 +23,17 @@ public:
     ~ofxAVUIXYPad();
     virtual void setPosition(int _x, int _y, int _width, int _height);   //polymorhing so we can set the starting position for cursor
     
+    void update();
+    void draw();
+
     void mouseMoved(ofMouseEventArgs & args);
     void mousePressed(ofMouseEventArgs & args);
     void mouseDragged(ofMouseEventArgs & args);
     void mouseReleased(ofMouseEventArgs & args);
     void mouseScrolled(ofMouseEventArgs & args);
+   
+    void sequencerListener(ofMouseEventArgs & args);
     
-    void update();
-    void draw();
 
 protected:
     float            savedX, savedY;
@@ -39,6 +44,8 @@ protected:
     bool             clicking;
     ofMouseEventArgs mouseArgs;
     string           paramX, paramY, paramBoolTrigger, paramBoolToggle;
+    ofxAVUIEvents    sequencerEvents;
+
 };
 
 #endif /* ofxAVUIXYPad_h */

@@ -33,6 +33,7 @@
 
 #include "ofxAVUIZonePlayer.h"
 #include "ofxAVUISoundFxBase.h"
+#include "ofxAVUIZoneSequencer.h"
 
 class ofxAVUIZone {
 	
@@ -52,6 +53,7 @@ public:
     void triggerReceived(bool &_trigger);
     void toggleReceived(bool &_toggle);
     void selectionReceived(int &_selection);
+    void sequencerChanged(bool &_sequencerRunning);
 
     //sound
     void loadSound(string _sound, int _bufferSize);
@@ -83,6 +85,7 @@ public:
     static const string TOGGLE_LOOPING;
     static const string TRIGGER_PLAY;
     static const string SELECTION;
+    static const string TOGGLE_SEQUENCER;
     
 
 private:
@@ -95,6 +98,7 @@ private:
     ofxAVUIZonePlayer   player;
     ofColor             fgColor, bgColor;
     ofFbo               FBO;
+    ofxAVUIZoneSequencer sequencer;
     //properties
     ofParameter<char>   devNull; //we don't use first parameter in the group, as it is returned by parameterGroup->get(param1) whenever param1 doesn't match any of the parameter namess
     ofParameter<float>  pitch; //speed;
@@ -107,8 +111,9 @@ private:
     ofParameter<float>  size;
     ofParameter<float>  feedback;
     ofParameter<int>    selection;
+    ofParameter<bool>   sequencerRunning;
     ofParameterGroup    soundProperties;
-    
+
     std::vector <ofxAVUIBase *> uis;
     std::vector <ofxAVUIVisualBase *> visuals;
 };

@@ -13,6 +13,7 @@ const string ofxAVUIZone::PITCH = "pitch";
 const string ofxAVUIZone::TOGGLE_LOOPING = "toggleLooping";
 const string ofxAVUIZone::TRIGGER_PLAY = "triggerPlay";
 const string ofxAVUIZone::SELECTION = "selection";
+const string ofxAVUIZone::TOGGLE_SEQUENCER = "toggleSequencer";
 
 ofxAVUIZone::ofxAVUIZone() {
     name = "";
@@ -52,14 +53,19 @@ ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColo
     soundProperties.add(looping.set(TOGGLE_LOOPING, player.looping));
     looping.addListener(this,&ofxAVUIZone::loopingChanged);
 
-    soundProperties.add(trigger.set(TRIGGER_PLAY, false));
+/*    soundProperties.add(trigger.set(TRIGGER_PLAY, false));
     trigger.addListener(this,&ofxAVUIZone::triggerReceived);
-
+*/
     soundProperties.add(toggle.set(TRIGGER_PLAY, false));
     toggle.addListener(this,&ofxAVUIZone::toggleReceived);
 
     soundProperties.add(selection.set(SELECTION, -1, -1, 10000));
     selection.addListener(this,&ofxAVUIZone::selectionReceived);
+
+    soundProperties.add(sequencerRunning.set(TOGGLE_SEQUENCER, sequencer.running));
+    sequencerRunning.addListener(this,&ofxAVUIZone::sequencerChanged);
+
+//    sequencer.bindProperties(&soundProperties);
 
     loaded = true;
 }
@@ -78,31 +84,43 @@ void ofxAVUIZone::addSoundFx(ofxAVUISoundFxBase * _fxElement) {
 
 void ofxAVUIZone::pitchChanged(float & _pitch){
     player.speed = _pitch;
+//    sequencer.addEvent(PITCH, _pitch, ofGetMouseX(), ofGetMouseY());
 }
 
 void ofxAVUIZone::volumeChanged(float & _volume){
     player.amplitude = _volume;
+//    sequencer.addEvent(VOLUME, _volume, ofGetMouseX(), ofGetMouseY());
 }
-
+/*
 void ofxAVUIZone::triggerReceived(bool &_trigger){
     player.trigger(pitch, volume);
+    cout << "TRIGGER RECEIVED" << endl;
+    sequencer.addEvent(TRIGGER_PLAY, _trigger, ofGetMouseX(), ofGetMouseY());
     trigger = false;
 }
-
+*/
 void ofxAVUIZone::toggleReceived(bool &_toggle){
     if (toggle) player.trigger(pitch, volume); else player.stop();
+//    sequencer.addEvent(TRIGGER_PLAY, _toggle, ofGetMouseX(), ofGetMouseY());
 }
 
 void ofxAVUIZone::loopingChanged(bool & _looping){
     player.looping = !player.looping;
+//    sequencer.addEvent(TOGGLE_LOOPING, _looping, ofGetMouseX(), ofGetMouseY());
 }
 
 void ofxAVUIZone::selectionReceived(int &_selection){
 //    cout << "selection -> " << selection << endl;
 }
 
+void ofxAVUIZone::sequencerChanged(bool & _sequencerRunning){
+    if (_sequencerRunning) sequencer.run(); else sequencer.stop();
+}
+
 
 void ofxAVUIZone::update() {
+    sequencer.update();
+
     takenOver = false;
     uiTakingOver = -1;
     for(std::size_t i = 0; i < uis.size(); i++){
@@ -143,6 +161,7 @@ void ofxAVUIZone::draw() {
             uis[i]->draw();
         }
     }
+    sequencer.draw();
     FBO.begin();
         ofClear(255,255,255, 0);
         for(std::size_t i = 0; i < visuals.size(); i++){
@@ -220,6 +239,7 @@ void ofxAVUIZone::addUI(ofxAVUIBase * _element, float _pixelHeight) {
     _element->setColor(bgColor, fgColor);
     _element->bindProperties(&soundProperties);
     shape.height = shape.height + _pixelHeight; //update zone height
+    sequencer.setup(shape.x, shape.y, shape.width, shape.height);   //sequencer needs to know about zone height
 }
 
 void ofxAVUIZone::addVisual(ofxAVUIVisualBase * _element, ofColor visColor) {

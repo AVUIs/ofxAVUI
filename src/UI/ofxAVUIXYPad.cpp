@@ -18,6 +18,8 @@ ofxAVUIXYPad::ofxAVUIXYPad(string _title, string _paramBoolTrigger, string _para
     paramY = _paramFloat2;
     paramBoolTrigger = _paramBoolTrigger;
     paramBoolToggle = _paramBoolToggle;
+    
+    ofAddListener(sequencerEvents.sequencerEvent, this, &ofxAVUIXYPad::sequencerListener);       //receive Sequencer events
 }
 
 ofxAVUIXYPad::~ofxAVUIXYPad(){
@@ -31,6 +33,8 @@ void ofxAVUIXYPad::setPosition(int _x, int _y, int _width, int _height) {
     shape.height = _height;
     location.x = _x + _width/2;
     location.y = _y + _height/2;
+    
+    sequencerEvents.addRestrictionRect(ofRectangle(shape.x, shape.y, shape.width, shape.height));    //needed so sequencer can register events in this UI shape
 }
 
 void ofxAVUIXYPad::update(){
@@ -40,9 +44,9 @@ void ofxAVUIXYPad::update(){
     float vertVal = ofMap(py,  py.getMin(), py.getMax(), shape.y, shape.y + shape.height, true);
     location.x = horizVal;
     location.y = vertVal;
+
     synced = true;
 }
-
 void ofxAVUIXYPad::draw(){
 //this is here so we dont need to call update() every cycle
 //    if (clicking && (ofGetElapsedTimeMillis() - doubleClickTimer > DOUBLECLICK_MILLIS)) {
@@ -117,6 +121,13 @@ void ofxAVUIXYPad::mouseReleased(ofMouseEventArgs & args) {
 //        }
         dragging = false;
     }
+}
+
+void ofxAVUIXYPad::sequencerListener(ofMouseEventArgs & args) {
+    if (args.type == ofMouseEventArgs::Moved) mouseMoved(args);
+    else if (args.type == ofMouseEventArgs::Pressed) mousePressed(args);
+    else if (args.type == ofMouseEventArgs::Released) mouseReleased(args);
+    else if (args.type == ofMouseEventArgs::Dragged) mouseDragged(args);
 }
 
 void ofxAVUIXYPad::mouseScrolled(ofMouseEventArgs & args) {

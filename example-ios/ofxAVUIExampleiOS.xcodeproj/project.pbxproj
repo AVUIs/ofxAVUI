@@ -45,6 +45,8 @@
 		3EE18ED71D5F4C6200AFF7ED /* ofxAVUIDropDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EE18ED51D5F4C6200AFF7ED /* ofxAVUIDropDown.cpp */; };
 		3EE18EDE1D5F6EE600AFF7ED /* ofxAVUIRangeSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EE18EDA1D5F6EE600AFF7ED /* ofxAVUIRangeSlider.cpp */; };
 		3EE18EDF1D5F6EE600AFF7ED /* ofxAVUIXYCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EE18EDC1D5F6EE600AFF7ED /* ofxAVUIXYCanvas.cpp */; };
+		3EE18EE31D61DA2B00AFF7ED /* ofxAVUIZoneSequencer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EE18EE11D61DA2B00AFF7ED /* ofxAVUIZoneSequencer.cpp */; };
+		3EE18EE81D63124600AFF7ED /* ofxAVUIEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EE18EE61D63124600AFF7ED /* ofxAVUIEvents.cpp */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
 		678E130817951530005B6D19 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130717951530005B6D19 /* Icon@2x.png */; };
@@ -161,6 +163,10 @@
 		3EE18EDB1D5F6EE600AFF7ED /* ofxAVUIRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIRangeSlider.h; sourceTree = "<group>"; };
 		3EE18EDC1D5F6EE600AFF7ED /* ofxAVUIXYCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIXYCanvas.cpp; sourceTree = "<group>"; };
 		3EE18EDD1D5F6EE600AFF7ED /* ofxAVUIXYCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIXYCanvas.h; sourceTree = "<group>"; };
+		3EE18EE11D61DA2B00AFF7ED /* ofxAVUIZoneSequencer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIZoneSequencer.cpp; sourceTree = "<group>"; };
+		3EE18EE21D61DA2B00AFF7ED /* ofxAVUIZoneSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIZoneSequencer.h; sourceTree = "<group>"; };
+		3EE18EE61D63124600AFF7ED /* ofxAVUIEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIEvents.cpp; sourceTree = "<group>"; };
+		3EE18EE71D63124600AFF7ED /* ofxAVUIEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIEvents.h; sourceTree = "<group>"; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		678E130717951530005B6D19 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "bin/data/Icon@2x.png"; sourceTree = "<group>"; };
@@ -312,11 +318,15 @@
 		3EA775211C9456FA007EB610 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				3EE18EE61D63124600AFF7ED /* ofxAVUIEvents.cpp */,
+				3EE18EE71D63124600AFF7ED /* ofxAVUIEvents.h */,
 				3EA775291C9456FA007EB610 /* ofxAVUI.h */,
 				3EA7752A1C9456FA007EB610 /* ofxAVUIZone.cpp */,
 				3EA7752B1C9456FA007EB610 /* ofxAVUIZone.h */,
 				3EA7752C1C9456FA007EB610 /* ofxAVUIZonePlayer.cpp */,
 				3EA7752D1C9456FA007EB610 /* ofxAVUIZonePlayer.h */,
+				3EE18EE11D61DA2B00AFF7ED /* ofxAVUIZoneSequencer.cpp */,
+				3EE18EE21D61DA2B00AFF7ED /* ofxAVUIZoneSequencer.h */,
 				3EA775221C9456FA007EB610 /* audio */,
 				3EA7752E1C9456FA007EB610 /* UI */,
 				3EA7753B1C9456FA007EB610 /* visual */,
@@ -579,6 +589,7 @@
 				3EA7758E1C9457E7007EB610 /* ofxSliderGroup.cpp in Sources */,
 				3EA775661C9456FA007EB610 /* ofxAVUIButton.cpp in Sources */,
 				3EA7756A1C9456FA007EB610 /* ofxAVUIXYPad.cpp in Sources */,
+				3EE18EE81D63124600AFF7ED /* ofxAVUIEvents.cpp in Sources */,
 				3EA774591C94566D007EB610 /* stb_vorbis.c in Sources */,
 				3EA7758A1C9457E7007EB610 /* ofxGuiGroup.cpp in Sources */,
 				3EA774521C94566D007EB610 /* fft.cpp in Sources */,
@@ -609,6 +620,7 @@
 				3EA775651C9456FA007EB610 /* ofxAVUIBase.cpp in Sources */,
 				3EA774561C94566D007EB610 /* maxiGrains.cpp in Sources */,
 				3EA775641C9456FA007EB610 /* ofxAVUIZonePlayer.cpp in Sources */,
+				3EE18EE31D61DA2B00AFF7ED /* ofxAVUIZoneSequencer.cpp in Sources */,
 				3EA775881C9457E7007EB610 /* ofxBaseGui.cpp in Sources */,
 				3EA7758B1C9457E7007EB610 /* ofxLabel.cpp in Sources */,
 				E4D8936F11527B74007E1F53 /* ofApp.mm in Sources */,

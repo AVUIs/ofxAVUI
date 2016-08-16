@@ -44,7 +44,8 @@ void ofApp::setup(){
     ofxAVUIDropDown *dropdown1 = new ofxAVUIDropDown("DropDown", "selection");
     zones[0].addUI(dropdown1, 50);
     for(int i=0;i<numFiles;i++) dropdown1->addItem(DIR.getName(i));
-
+    ofxAVUIToggle *toggle5 = new ofxAVUIToggle("Sequnecer", "toggleSequencer");
+    zones[0].addUI(toggle5, 50);
     //ZONE 0 AUDIO EFFECTS
     //empty
     //ZONE 0 VISUALS
@@ -176,7 +177,6 @@ void ofApp::audioIn(float * input, int bufferSize, int nChannels){
 
 //--------------------------------------------------------------
 void ofApp::touchDown(ofTouchEventArgs &touch){
-    cout << touch.id << endl;
 }
 
 //--------------------------------------------------------------
