@@ -37,6 +37,7 @@ private:
     int         currentPage;
     int         numPages;
     int         itemsPerPage;
+    bool        topPositionSpecial;
 };
 
 #endif /* ofxAVUIDropDown_h */

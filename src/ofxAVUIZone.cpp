@@ -41,7 +41,7 @@ ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColo
     fgColor = _foregroundColor;
     bgColor = _backgroundColor;
     player.setup(ofToDataPath(_sound), _bufferSize);
-    
+
     soundProperties.add(devNull.set(DEV_NULL, 1.0, 0.0, 2.0));
 
     soundProperties.add(pitch.set(PITCH, player.speed, 0.0, 2.0));
@@ -128,7 +128,6 @@ void ofxAVUIZone::update() {
             takenOver = true;
             uiTakingOver = i;
             uisUnregisterMouse(i);
-            uis[i]->setTakeoverPosition(shape.x, shape.y, shape.width, shape.height);
             break;
         }
     }
@@ -178,6 +177,7 @@ ofTexture &ofxAVUIZone::getVisualTexture() {
 
 void ofxAVUIZone::syncParameters() {
     for(std::size_t i = 0; i < uis.size(); i++){
+        uis[i]->setTakeoverPosition(shape.x, shape.y, shape.width, shape.height);
         uis[i]->update();
     }
     for(std::size_t i = 0; i < visuals.size(); i++){

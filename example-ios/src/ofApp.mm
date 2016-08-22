@@ -24,11 +24,11 @@ void ofApp::setup(){
     //CHECK FILES IN DOCUMENTS DIR
     numFiles = DIR.listDir(ofxiPhoneGetDocumentsDirectory());
     for (int i=0;i<NUM_ZONES;i++) files[i] = 0;
-    
+
     //ZONE 0 SETUP
     //parameters: name, x, y, width, background color, foreground color, sound filename, sound buffer size
 //    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), "synth.wav", bufferSize);
-    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), DIR.getPath(files[0]), bufferSize);
+    zones[0].setup("zone1", 50, 100, 200, ofColor(100,100,100, 150), ofColor(0,255,255, 255), (numFiles>0?DIR.getPath(files[0]):""), bufferSize);
     //ZONE 0 UI
     //pad parameters: caption, trigger (single tap) parameter name, toggle (double tap) parameter name, x parameter name, y parameter name
     ofxAVUIXYPad *pad1 = new ofxAVUIXYPad("", "triggerPlay",  "toggleLooping", "volume", "pitch");
@@ -44,6 +44,7 @@ void ofApp::setup(){
     ofxAVUIDropDown *dropdown1 = new ofxAVUIDropDown("DropDown", "selection");
     zones[0].addUI(dropdown1, 50);
     for(int i=0;i<numFiles;i++) dropdown1->addItem(DIR.getName(i));
+
     ofxAVUIToggle *toggle5 = new ofxAVUIToggle("Sequnecer", "toggleSequencer");
     zones[0].addUI(toggle5, 50);
     //ZONE 0 AUDIO EFFECTS
@@ -54,7 +55,7 @@ void ofApp::setup(){
 
     //ZONE 1 SETUP
 //    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), "drumloop.wav", bufferSize);
-    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), DIR.getPath(files[1]), bufferSize);
+    zones[1].setup("zone2", 325, 150, 150, ofColor(100,100,100, 150), ofColor(255,255,0, 255), (numFiles>1?DIR.getPath(files[1]):(numFiles>0?DIR.getPath(files[0]):"")), bufferSize);
     //ZONE 1 UI
     ofxAVUIEmpty *empty1 = new ofxAVUIEmpty("Empty");
     zones[1].addUI(empty1, 50);
@@ -78,7 +79,7 @@ void ofApp::setup(){
 
     //ZONE 2 SETUP
 //    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), "bass.wav", bufferSize);
-    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), DIR.getPath(files[2]), bufferSize);
+    zones[2].setup("zone3", 550, 100, 200, ofColor(100,100,100, 150), ofColor(255,0,255, 255), (numFiles>2?DIR.getPath(files[2]):(numFiles>1?DIR.getPath(files[1]):(numFiles>0?DIR.getPath(files[0]):""))), bufferSize);
     //ZONE 2 UI
     ofxAVUIXYPad *pad3 = new ofxAVUIXYPad("Pad", "triggerPlay", "triggerPlay", "pitch", "volume");
     zones[2].addUI(pad3, 100);

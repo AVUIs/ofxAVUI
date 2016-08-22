@@ -12,6 +12,8 @@ ofxAVUIDropDown::ofxAVUIDropDown(string _title, string _paramSelection){
     paramSelection = _paramSelection;
     itemHeight = 35;
     resetItems();
+    topPositionSpecial = false;
+    resetItems();
 }
 
 ofxAVUIDropDown::~ofxAVUIDropDown(){
@@ -19,14 +21,19 @@ ofxAVUIDropDown::~ofxAVUIDropDown(){
 }
 
 void ofxAVUIDropDown::setTakeoverPosition(int _x, int _y, int _width, int _height) {
+    cout << "setTakeoverPosition" << endl;
     takeoverShape.x = _x;
     takeoverShape.y = _y;
     takeoverShape.width = _width;
     takeoverShape.height = _height;
-
-    int itemsPerHeight = takeoverShape.height / itemHeight;
-    itemHeight = takeoverShape.height / itemsPerHeight;
-    itemsPerPage = itemsPerHeight - 2;      //top and bottom items reserved for nav
+    topPositionSpecial = false;
+    if (shape.y == takeoverShape.y) {  //top of the zone? => special draw
+        topPositionSpecial = true;
+    }
+    
+    int itemsPerHeight = (takeoverShape.height - (topPositionSpecial?shape.height:0)) / itemHeight;
+    itemHeight = (takeoverShape.height - (topPositionSpecial?shape.height:0)) / itemsPerHeight;
+    itemsPerPage = itemsPerHeight - (topPositionSpecial?1:2);      //top and bottom items reserved for nav
     numPages = items.size() / itemsPerPage;
     if (items.size()%itemsPerPage > 0) numPages+=1;
 }
@@ -61,17 +68,20 @@ void ofxAVUIDropDown::draw(){
         drawContour();
         //current selection if any
         int mid = itemHeight/2 + getBitmapStringBoundingBox("1").height/2;
-        if (selection!=-1)  ofDrawBitmapString(fitString("< " + items[selection]), takeoverShape.x + 5, takeoverShape.y + mid);
-//        ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + shape.width, takeoverShape.y + itemHeight);
-            ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + itemHeight);
-            ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + itemHeight);
-        //other items in current page
-        int itemsCount = itemsPerPage;
-        if ((currentPage==numPages-1) && items.size()%itemsPerPage > 0) itemsCount = items.size()%itemsPerPage;
-        for(std::size_t i = 0; i < itemsCount; i++){
-            ofDrawBitmapString(items[i+currentPage*itemsPerPage], takeoverShape.x + 5, takeoverShape.y + (i+1)*itemHeight+mid);
+        if (selection!=-1)  {
+            ofDrawBitmapString(fitString("< " + items[selection]), takeoverShape.x + 5, (topPositionSpecial?(shape.y + shape.height - 5):(takeoverShape.y + mid)));
+            if (!topPositionSpecial) {  //draw top line if not top of the zone
+                ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + itemHeight);
+                ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + itemHeight);
+            }
+            //other items in current page
+            int itemsCount = itemsPerPage;
+            if ((currentPage==numPages-1) && items.size()%itemsPerPage > 0) itemsCount = items.size()%itemsPerPage;
+            for(std::size_t i = 0; i < itemsCount; i++){
+                ofDrawBitmapString(items[i+currentPage*itemsPerPage], takeoverShape.x + 5, takeoverShape.y + (i+1)*itemHeight+mid);
 //            ofDrawLine(takeoverShape.x, takeoverShape.y + (i+2)*itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + (i+2)*itemHeight);
 //            ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + (i+2)*itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + (i+2)*itemHeight);
+            }
         }
         //pages nav
 //        ofDrawLine(takeoverShape.x, takeoverShape.y + (itemsPerPage+1)*itemHeight, takeoverShape.x + shape.width, takeoverShape.y + (itemsPerPage+1)*itemHeight);
@@ -88,7 +98,7 @@ void ofxAVUIDropDown::draw(){
         ofSetColor(fgColor);
         drawContour();
 //        drawTitle();
-        ofDrawBitmapString(fitString("> " + items[selection]), shape.x + 5, shape.y + shape.height - 5);
+        if (selection!=-1) ofDrawBitmapString(fitString("> " + items[selection]), shape.x + 5, shape.y + shape.height - 5);
 
         ofPopStyle();
     }
@@ -103,9 +113,9 @@ void ofxAVUIDropDown::mouseDragged(ofMouseEventArgs & args) {
 }
 
 void ofxAVUIDropDown::mouseReleased(ofMouseEventArgs & args) {
-    if (!takeover && shape.inside(args.x, args.y)) {
+    if (!takeover && selection>-1 && shape.inside(args.x, args.y)) {
         takeover = true;
-    } else if (takeover && takeoverShape.inside(args.x, args.y)) {
+    } else if (takeover  && selection>-1 && takeoverShape.inside(args.x, args.y)) {
         if (ofRectangle(takeoverShape.x, takeoverShape.y, takeoverShape.width, itemHeight*1.2).inside(args.x, args.y)) {
             takeover = false;
         } else if (ofRectangle(takeoverShape.x, takeoverShape.y + takeoverShape.height-itemHeight*1.2, 45, itemHeight*1.2).inside(args.x, args.y)) {
