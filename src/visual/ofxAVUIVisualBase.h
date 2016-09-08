@@ -23,7 +23,8 @@ public:
 protected:
     ofRectangle     shape;
     int             myBufferSize;
-    ofColor visColor;
+    ofColor         visColor;
+//    ofFbo           FBO;
 };
 
 

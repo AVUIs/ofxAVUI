@@ -41,7 +41,8 @@ public:
 	ofxAVUIZone();
 	~ofxAVUIZone();
     //zone is defined by position and width in pixels, the UI and visual elements are then stacked down from position
-    ofxAVUIZone* setup(string _name, int _x, int _y, int _width, ofColor _backgroundColor, ofColor _foregroundColor, string _sound, int _bufferSize);   //why is this function not void??
+//    ofxAVUIZone*
+    void setup(string _name, int _x, int _y, int _width, ofColor _backgroundColor, ofColor _foregroundColor, string _sound, int _bufferSize);   //why is this function not void??
     void update();
     void draw();
     
@@ -63,6 +64,7 @@ public:
 
     //UI
     void addUI(ofxAVUIBase * _element, float _pixelHeight); //UI elements are stacked top->down
+    void setUIFont(string _font, int _size);
 
     void addVisual(ofxAVUIVisualBase * _element, ofColor visColor);
     ofTexture &getVisualTexture();
@@ -99,6 +101,7 @@ private:
     ofColor             fgColor, bgColor;
     ofFbo               FBO;
     ofxAVUIZoneSequencer sequencer;
+    ofTrueTypeFont      UIFont;
     //properties
     ofParameter<char>   devNull; //we don't use first parameter in the group, as it is returned by parameterGroup->get(param1) whenever param1 doesn't match any of the parameter namess
     ofParameter<float>  pitch; //speed;

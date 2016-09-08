@@ -18,6 +18,14 @@ void ofxAVUIZoneSequencer::setup(int _x, int _y, int _width, int _height){
     reset();
 }
 
+void ofxAVUIZoneSequencer::unregisterMouse() {
+	ofUnregisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+}
+
+void ofxAVUIZoneSequencer::registerMouse() {
+    ofRegisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+}
+
 void ofxAVUIZoneSequencer::reset(){
     counter = 0;
     running = false;
@@ -27,14 +35,14 @@ void ofxAVUIZoneSequencer::reset(){
 void ofxAVUIZoneSequencer::run(){
     if (!running) {
         reset();      //reset on first run, don't reset if already running
-        ofRegisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+        registerMouse();
     }
     running = true;
 }
 
 void ofxAVUIZoneSequencer::stop(){
     reset();
-	ofUnregisterMouseEvents(this, OF_EVENT_ORDER_BEFORE_APP);
+	unregisterMouse();
 }
 
 void ofxAVUIZoneSequencer::update(){
@@ -72,6 +80,9 @@ void ofxAVUIZoneSequencer::draw(){
             }
             ofFill();
             ofDrawCircle(eventList[i].mouseArgs.x, eventList[i].mouseArgs.y, radius);
+            ofNoFill();
+            ofDrawRectangle(timeX-radius/2, shape.y + shape.height/2 - radius/2, radius, radius*2);
+            ofDrawLine(eventList[i].mouseArgs.x, eventList[i].mouseArgs.y, timeX, shape.y + shape.height/2);
         }
         ofPopStyle();
     }
@@ -84,10 +95,9 @@ void ofxAVUIZoneSequencer::addEvent(ofMouseEventArgs & args) {
             if (sequencerEvents.restrictions[i].inside(args.x, args.y)) { safe = true; break; }
         }
         if (safe) {
-            int counterX = ofMap(args.x, shape.x, shape.x + shape.width, 0, SEQUENCE_DURATION-1);
             eventInfo newEvent;
             newEvent.mouseArgs = args;
-            newEvent.time = counterX;
+            newEvent.time = counter;
             newEvent.active = false;
             eventList.push_back(newEvent);
         }
@@ -95,10 +105,10 @@ void ofxAVUIZoneSequencer::addEvent(ofMouseEventArgs & args) {
 }
 
 void ofxAVUIZoneSequencer::mousePressed(ofMouseEventArgs & args) {
-    addEvent(args);
+//    addEvent(args);
 }
 void ofxAVUIZoneSequencer::mouseMoved(ofMouseEventArgs & args) {
-    addEvent(args);
+//    addEvent(args);
 }
 void ofxAVUIZoneSequencer::mouseDragged(ofMouseEventArgs & args) {
 //    addEvent(args);

@@ -30,7 +30,8 @@ ofxAVUIZone::ofxAVUIZone() {
 ofxAVUIZone::~ofxAVUIZone() {
 }
 
-ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColor _backgroundColor, ofColor _foregroundColor,
+//ofxAVUIZone*
+void ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColor _backgroundColor, ofColor _foregroundColor,
                                 string _sound, int _bufferSize) {
     ofSetCircleResolution(200);
     name = _name;
@@ -44,10 +45,10 @@ ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColo
 
     soundProperties.add(devNull.set(DEV_NULL, 1.0, 0.0, 2.0));
 
-    soundProperties.add(pitch.set(PITCH, player.speed, 0.0, 2.0));
+    soundProperties.add(pitch.set(PITCH, 1.0, 0.0, 2.0));
     pitch.addListener(this,&ofxAVUIZone::pitchChanged);
 
-    soundProperties.add(volume.set(VOLUME, player.amplitude, 0.0, 2.0));
+    soundProperties.add(volume.set(VOLUME, 0.6, 1.0, 0.2));
     volume.addListener(this,&ofxAVUIZone::volumeChanged);
 
     soundProperties.add(looping.set(TOGGLE_LOOPING, player.looping));
@@ -72,7 +73,10 @@ ofxAVUIZone* ofxAVUIZone::setup(string _name, int _x, int _y, int _width, ofColo
 
 void ofxAVUIZone::loadSound(string _sound, int _bufferSize) {
     player.reset();
+    bool wasPlaying = player.playing;
+    player.playing = false;
     player.sound.load(_sound);  //avoid player.setup() as that resets all parameters, bringing them out of sync with UI
+    player.playing = wasPlaying;
 }
 
 void ofxAVUIZone::addSoundFx(ofxAVUISoundFxBase * _fxElement) {
@@ -136,23 +140,10 @@ void ofxAVUIZone::update() {
     }
 }
 
-//void ofxAVUIZone::drawVisuals() {
-//    if (!synced) syncParameters();
-//    FBO.begin();
-//        ofClear(255,255,255, 0);
-//        ofPushStyle();
-//        for(std::size_t i = 0; i < visuals.size(); i++){
-//            if (loaded) visuals[i]->draw(player.buffer, player.amplitude);
-//        }
-//        ofPopStyle();
-//    FBO.end();
-//    FBO.draw(shape.x, shape.y);
-//}
-
 void ofxAVUIZone::draw() {
     if (!synced) syncParameters();
     ofPushStyle();
-    ofSetLineWidth(1);
+    ofSetLineWidth(2);
     if (takenOver) {
         uis[uiTakingOver]->draw();
     } else {
@@ -161,13 +152,15 @@ void ofxAVUIZone::draw() {
         }
     }
     sequencer.draw();
+    ofPopStyle();
+
     FBO.begin();
-        ofClear(255,255,255, 0);
+        ofClear(0,0,0,0);
         for(std::size_t i = 0; i < visuals.size(); i++){
             if (loaded) visuals[i]->draw(player.buffer, player.amplitude);
         }
-        ofPopStyle();
     FBO.end();
+
     FBO.draw(shape.x, shape.y);
 }
 
@@ -184,18 +177,22 @@ void ofxAVUIZone::syncParameters() {
         visuals[i]->setPosition(shape.x, shape.y, shape.width, shape.height);   //needed if we add a visual first and then the UIs
     }
 
-    FBO.allocate(shape.width, shape.height, GL_RGBA);    //doing this here so we do it just once
+    FBO.allocate(shape.width, shape.height);    //doing this here so we do it just once
     FBO.setUseTexture(true);
     synced = true;
 }
 
 void ofxAVUIZone::uisUnregisterMouse(int _exception) {
+    sequencer.unregisterMouse();
     for(std::size_t i = 0; i < uis.size(); i++){
-        if (i!=_exception) uis[i]->unregisterMouse();
+        if (i!=_exception) {
+            uis[i]->unregisterMouse();
+        }
     }
 }
 
 void ofxAVUIZone::uisRegisterMouse() {
+    sequencer.registerMouse();
     for(std::size_t i = 0; i < uis.size(); i++){
         uis[i]->registerMouse();
     }
@@ -238,8 +235,13 @@ void ofxAVUIZone::addUI(ofxAVUIBase * _element, float _pixelHeight) {
 	_element->setPosition(shape.x, shape.y + shape.height, shape.width, _pixelHeight); //use previous zone height as new y pos
     _element->setColor(bgColor, fgColor);
     _element->bindProperties(&soundProperties);
+    if (UIFont.isLoaded()) _element->setFont(&UIFont);
     shape.height = shape.height + _pixelHeight; //update zone height
     sequencer.setup(shape.x, shape.y, shape.width, shape.height);   //sequencer needs to know about zone height
+}
+
+void ofxAVUIZone::setUIFont(string _font, int _size) {
+    UIFont.load(_font, _size);
 }
 
 void ofxAVUIZone::addVisual(ofxAVUIVisualBase * _element, ofColor visColor) {

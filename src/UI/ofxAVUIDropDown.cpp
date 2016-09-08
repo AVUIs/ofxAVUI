@@ -10,7 +10,7 @@
 ofxAVUIDropDown::ofxAVUIDropDown(string _title, string _paramSelection){
     title = _title;
     paramSelection = _paramSelection;
-    itemHeight = 35;
+    itemHeight = ofGetHeight()/22;
     resetItems();
     topPositionSpecial = false;
     resetItems();
@@ -21,7 +21,6 @@ ofxAVUIDropDown::~ofxAVUIDropDown(){
 }
 
 void ofxAVUIDropDown::setTakeoverPosition(int _x, int _y, int _width, int _height) {
-    cout << "setTakeoverPosition" << endl;
     takeoverShape.x = _x;
     takeoverShape.y = _y;
     takeoverShape.width = _width;
@@ -46,7 +45,8 @@ void ofxAVUIDropDown::resetItems() {
 }
 
 string ofxAVUIDropDown::fitString(string _stringToFit){
-    int maxWidthChar = (shape.width-10) / getBitmapStringBoundingBox("8").width;
+    float padding = ofGetHeight()/75;
+    int maxWidthChar = (shape.width-padding) / (customFont ? uifont->getStringBoundingBox("8", 0, 0).width : getBitmapStringBoundingBox("8").width);
     if (_stringToFit.length() > maxWidthChar) _stringToFit = _stringToFit.substr(0, maxWidthChar-2) + "..";
     return _stringToFit;
 }
@@ -57,6 +57,7 @@ void ofxAVUIDropDown::addItem(string _item) {
 }
 
 void ofxAVUIDropDown::draw(){
+    float padding = ofGetHeight()/150;
     if (takeover && takeoverShape.x==0 && takeoverShape.y==0 && takeoverShape.width==0 && takeoverShape.height==0) {
         cout << "WARNING: Takeover not possible without zone.update() invoked before zone.draw()" << endl;
         takeover = false;
@@ -67,9 +68,10 @@ void ofxAVUIDropDown::draw(){
         ofSetColor(fgColor);
         drawContour();
         //current selection if any
-        int mid = itemHeight/2 + getBitmapStringBoundingBox("1").height/2;
+        int mid = itemHeight/2 + (customFont ? uifont->getStringBoundingBox("1",0,0).height : getBitmapStringBoundingBox("1").height) / 2;
         if (selection!=-1)  {
-            ofDrawBitmapString(fitString("< " + items[selection]), takeoverShape.x + 5, (topPositionSpecial?(shape.y + shape.height - 5):(takeoverShape.y + mid)));
+            if (!customFont) ofDrawBitmapString(fitString("< " + items[selection]), takeoverShape.x + 5, (topPositionSpecial?(shape.y + shape.height - 5):(takeoverShape.y + mid)));
+                else uifont->drawString(fitString("< " + items[selection]), takeoverShape.x + padding, (topPositionSpecial?(shape.y + shape.height - padding):(takeoverShape.y + mid)));
             if (!topPositionSpecial) {  //draw top line if not top of the zone
                 ofDrawLine(takeoverShape.x, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + itemHeight);
                 ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + itemHeight);
@@ -78,7 +80,8 @@ void ofxAVUIDropDown::draw(){
             int itemsCount = itemsPerPage;
             if ((currentPage==numPages-1) && items.size()%itemsPerPage > 0) itemsCount = items.size()%itemsPerPage;
             for(std::size_t i = 0; i < itemsCount; i++){
-                ofDrawBitmapString(items[i+currentPage*itemsPerPage], takeoverShape.x + 5, takeoverShape.y + (i+1)*itemHeight+mid);
+                if (!customFont) ofDrawBitmapString(items[i+currentPage*itemsPerPage], takeoverShape.x + 5, takeoverShape.y + (i+1)*itemHeight+mid);
+                    else uifont->drawString(items[i+currentPage*itemsPerPage], takeoverShape.x + padding, takeoverShape.y + (i+1)*itemHeight+mid);
 //            ofDrawLine(takeoverShape.x, takeoverShape.y + (i+2)*itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + (i+2)*itemHeight);
 //            ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + (i+2)*itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + (i+2)*itemHeight);
             }
@@ -87,9 +90,12 @@ void ofxAVUIDropDown::draw(){
 //        ofDrawLine(takeoverShape.x, takeoverShape.y + (itemsPerPage+1)*itemHeight, takeoverShape.x + shape.width, takeoverShape.y + (itemsPerPage+1)*itemHeight);
         ofDrawLine(takeoverShape.x, takeoverShape.y + (itemsPerPage+1)*itemHeight, takeoverShape.x + takeoverShape.width*0.25, takeoverShape.y + (itemsPerPage+1)*itemHeight);
         ofDrawLine(takeoverShape.x + takeoverShape.width*0.75, takeoverShape.y + (itemsPerPage+1)*itemHeight, takeoverShape.x + takeoverShape.width, takeoverShape.y + (itemsPerPage+1)*itemHeight);
-        ofDrawBitmapString("<", takeoverShape.x + 15, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
-        ofDrawBitmapString(">", takeoverShape.x + takeoverShape.width-15-getBitmapStringBoundingBox(">").width, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
-        ofDrawBitmapString(ofToString(currentPage+1)+"/"+ofToString(numPages), takeoverShape.x + (takeoverShape.width-getBitmapStringBoundingBox("8/8").width)/2, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+        if (!customFont) ofDrawBitmapString("<", takeoverShape.x + 15, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+            else uifont->drawString("<", takeoverShape.x + padding*3, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+        if (!customFont) ofDrawBitmapString(">", takeoverShape.x + takeoverShape.width-15-getBitmapStringBoundingBox(">").width, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+            else uifont->drawString(">", takeoverShape.x + takeoverShape.width-padding*3-uifont->getStringBoundingBox(">",0,0).width, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+        if (!customFont) ofDrawBitmapString(ofToString(currentPage+1)+"/"+ofToString(numPages), takeoverShape.x + (takeoverShape.width-getBitmapStringBoundingBox("8/8").width)/2, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
+            else uifont->drawString(ofToString(currentPage+1)+"/"+ofToString(numPages), takeoverShape.x + (takeoverShape.width-uifont->getStringBoundingBox("8/8",0,0).width)/2, takeoverShape.y + (itemsPerPage+1)*itemHeight + mid);
         ofPopStyle();
     } else {
         ofPushStyle();
@@ -98,8 +104,10 @@ void ofxAVUIDropDown::draw(){
         ofSetColor(fgColor);
         drawContour();
 //        drawTitle();
-        if (selection!=-1) ofDrawBitmapString(fitString("> " + items[selection]), shape.x + 5, shape.y + shape.height - 5);
-
+        if (selection!=-1) {
+            if (!customFont) ofDrawBitmapString(fitString("> " + items[selection]), shape.x + 5, shape.y + shape.height - 5);
+                else uifont->drawString(fitString("> " + items[selection]), shape.x + padding, shape.y + shape.height - padding);
+        }
         ofPopStyle();
     }
 }

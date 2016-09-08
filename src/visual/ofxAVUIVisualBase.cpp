@@ -24,5 +24,6 @@ void ofxAVUIVisualBase::setPosition(int _x, int _y, int _width, int _height) {
     shape.y = _y;
     shape.width = _width;
     shape.height = _height;
+//    FBO.allocate(shape.width, shape.height);
 }
 

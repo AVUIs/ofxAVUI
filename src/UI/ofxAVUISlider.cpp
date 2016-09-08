@@ -37,6 +37,7 @@ void ofxAVUISlider::update() {
 }
 
 void ofxAVUISlider::draw(){
+    float padding = ofGetHeight()/150;
 //this is here so we dont need to call update() every cycle
 //    if (clicking && (ofGetElapsedTimeMillis() - doubleClickTimer > DOUBLECLICK_MILLIS)) {
 //        x = mouseArgs.x;
@@ -56,7 +57,7 @@ void ofxAVUISlider::draw(){
     drawTitle();
 //    ofDrawLine(x-shape.x, 0, x-shape.x, shape.height);  //cursor
     ofDrawLine(x, shape.y, x, shape.y+shape.height);  //cursor
-    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(x, shape.y + shape.height/2,10); //draw toggle
+    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(x, shape.y + shape.height/2,padding*2); //draw toggle
     ofPopStyle();
 }
 

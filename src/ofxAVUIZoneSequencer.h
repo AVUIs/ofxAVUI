@@ -26,6 +26,8 @@ class ofxAVUIZoneSequencer {
         void stop();
         void reset();
         void addEvent(ofMouseEventArgs & args);
+        void unregisterMouse();
+        void registerMouse();
 
         void mouseMoved(ofMouseEventArgs & args);
         void mousePressed(ofMouseEventArgs & args);

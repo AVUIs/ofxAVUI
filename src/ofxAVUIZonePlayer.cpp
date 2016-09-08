@@ -28,7 +28,6 @@ void ofxAVUIZonePlayer::setup(string _sound, int bufferSize){
 void ofxAVUIZonePlayer::reset(){
     sound.clear();
     sound.reset();      //reset position to start as we dont know the upcoming sound's size
-//    playing = false;  //keep playing
 }
 
 void ofxAVUIZonePlayer::addSoundFx(ofxAVUISoundFxBase * _fxElement) {
@@ -53,15 +52,19 @@ void ofxAVUIZonePlayer::play(int pos, double pan){
             sampleOut=envelope.ar(sound.play(speed), 0.1, (stopping?0.9999:1), 1, sampleTrigger);
         } else {
             if (sampleTrigger==1) sound.trigger();
+//            sampleOut=envelope.ar((speed<0?sound.play(speed):sound.playOnce(speed)), 0.1, (stopping?0.9999:1), 1, sampleTrigger);
             sampleOut=envelope.ar(sound.playOnce(speed), 0.1, (stopping?0.9999:1), 1, sampleTrigger);
         }
-    }
     
-    for(std::size_t i = 0; i < fxs.size(); i++){
-        if (fxs[i]->isEnabled()) sampleOut = fxs[i]->compute(sampleOut);
+        for(std::size_t i = 0; i < fxs.size(); i++){
+            if (fxs[i]->isEnabled()) sampleOut = fxs[i]->compute(sampleOut);
+        }
+        
+        buffer[pos]=sampleOut;
+    }   else {
+        buffer[pos]=0;
     }
-    
-    buffer[pos]=sampleOut;
+
     bus.stereo(sampleOut*amplitude, outputs, pan);
     sampleTrigger = 0;
 }

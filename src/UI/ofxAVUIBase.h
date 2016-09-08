@@ -16,6 +16,7 @@ public:
     ofxAVUIBase();
     virtual ~ofxAVUIBase();
     virtual void setPosition(int _x, int _y, int _width, int _height);
+    void  setFont(ofTrueTypeFont *_font);
     ofRectangle  getPosition();
     virtual void setTakeoverPosition(int _x, int _y, int _width, int _height);
     void setColor(ofColor _bgColor, ofColor _fgColor);
@@ -45,6 +46,8 @@ protected:
     ofParameterGroup   *soundProperties;
     bool                synced;
     bool                takeover;   //TRUE => this UI takes over the whole Zone
+    ofTrueTypeFont     *uifont;
+    bool                customFont;
 };
 
 #endif /* ofxAVUIBase_h */

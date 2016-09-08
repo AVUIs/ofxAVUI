@@ -18,7 +18,6 @@ ofxAVUIXYPad::ofxAVUIXYPad(string _title, string _paramBoolTrigger, string _para
     paramY = _paramFloat2;
     paramBoolTrigger = _paramBoolTrigger;
     paramBoolToggle = _paramBoolToggle;
-    
     ofAddListener(sequencerEvents.sequencerEvent, this, &ofxAVUIXYPad::sequencerListener);       //receive Sequencer events
 }
 
@@ -48,6 +47,7 @@ void ofxAVUIXYPad::update(){
     synced = true;
 }
 void ofxAVUIXYPad::draw(){
+    float padding = ofGetHeight()/150;
 //this is here so we dont need to call update() every cycle
 //    if (clicking && (ofGetElapsedTimeMillis() - doubleClickTimer > DOUBLECLICK_MILLIS)) {
 //        location.x = mouseArgs.x;
@@ -72,9 +72,9 @@ void ofxAVUIXYPad::draw(){
 //    ofDrawLine(location.x-shape.x-5, location.y-shape.y, location.x-shape.x+5, location.y-shape.y); //subtract shape.x and shape.y bcos we are in FBO
 //    ofDrawLine(location.x-shape.x, location.y-shape.y-5, location.x-shape.x, location.y-shape.y+5);
 //    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(location.x-shape.x,location.y-shape.y,10);   //draw toggle, not trigger
-    ofDrawLine(location.x-5, location.y, location.x+5, location.y); //subtract shape.x and shape.y bcos we are in FBO
-    ofDrawLine(location.x, location.y-5, location.x, location.y+5);
-    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(location.x,location.y,10);   //draw toggle, not trigger
+    ofDrawLine(location.x-padding, location.y, location.x+padding, location.y); //subtract shape.x and shape.y bcos we are in FBO
+    ofDrawLine(location.x, location.y-padding, location.x, location.y+padding);
+    if(soundProperties->getBool(paramBoolToggle)) ofDrawCircle(location.x,location.y, padding*2);   //draw toggle, not trigger
     ofPopStyle();
 }
 

@@ -12,17 +12,16 @@ ofxAVUIVisualCircles::ofxAVUIVisualCircles(int nCircles){
 }
 
 void ofxAVUIVisualCircles::draw(float * buffer, float amplitude){
-    //wave
-    ofPushStyle();
-    ofFill();
-    ofSetColor(visColor);
-    for(int i=0; i<numCircles; i++){
-        float y1 = shape.height/2;
-        int bufferSlice=myBufferSize/numCircles;
-        float y2 = buffer[bufferSlice*i] * (shape.height);
-        float circleSpacing = shape.width/numCircles;
-        float x = i*circleSpacing+circleSpacing/2;
-        ofDrawCircle(x, y1, y2);
-    }
-    ofPopStyle();
+        ofPushStyle();
+        ofFill();
+        ofSetColor(visColor);
+        for(int i=0; i<numCircles; i++){
+            float y1 = shape.height/2;
+            int bufferSlice=myBufferSize/numCircles;
+            float y2 = buffer[bufferSlice*i] * (shape.height);
+            float circleSpacing = shape.width/numCircles;
+            float x = i*circleSpacing+circleSpacing/2;
+            ofDrawCircle(x, y1, y2);
+        }
+        ofPopStyle();
 }

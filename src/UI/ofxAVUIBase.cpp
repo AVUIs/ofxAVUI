@@ -13,6 +13,7 @@ ofxAVUIBase::ofxAVUIBase(){
     takeover = false;
     shape = ofRectangle(0,0,0,0);
     takeoverShape = ofRectangle(0,0,0,0);
+    customFont = false;
 }
 
 ofxAVUIBase::~ofxAVUIBase(){
@@ -25,6 +26,12 @@ void ofxAVUIBase::setPosition(int _x, int _y, int _width, int _height) {
 //    shape.width = _width;
 //    shape.height = _height;
     shape = ofRectangle(_x, _y, _width, _height);
+}
+
+
+void ofxAVUIBase::setFont(ofTrueTypeFont *_font) {
+    uifont = _font;
+    customFont = true;
 }
 
 ofRectangle ofxAVUIBase::getPosition() {
@@ -97,7 +104,9 @@ void ofxAVUIBase::drawTitle() {
 //    ofDrawBitmapString(title, shape.x + shape.width/2 - titleBounds.width/2, 0 + shape.height/2 - titleBounds.height/2 + 10);
 //lover left, fbo
     ofRectangle activeShape = (takeover?takeoverShape:shape);
-    ofDrawBitmapString(title, activeShape.x + 5, activeShape.y + activeShape.height - 5);
+    float padding = ofGetHeight()/150;
+    if (!customFont) ofDrawBitmapString(title, activeShape.x + padding, activeShape.y + activeShape.height - padding);
+        else uifont->drawString(title, activeShape.x + padding, activeShape.y + activeShape.height - padding);
 }
 
 ofRectangle ofxAVUIBase::getBitmapStringBoundingBox(string text){
@@ -124,3 +133,4 @@ ofRectangle ofxAVUIBase::getBitmapStringBoundingBox(string text){
     int width = maxLineLength * fontSize;
     return ofRectangle(0,0,width, height);
 }
+
