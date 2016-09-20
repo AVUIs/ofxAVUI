@@ -6,14 +6,14 @@ ofxAVUI is an [openFrameworks](http://www.openframeworks.cc) addon that enables 
 - Button
 - Toggle
 - Slider
+- Range slider
 - XY pad
+- Drop-down menu
 - Empty
 
 Multiple sound effects can be used, and UI elements can be routed to effect parameters and sound playback options. Currently, the add-on contains delay (with size and feedback) and filter (with frequency and resonance) effects. Playback speed and volume can also be used for UI feedback. Currently there are three visualisations available (Wave, Bars, Circles), but these can be easily expandable.
 
 The example code demonstrates the use of the different UI elements, audio effects and types of visuals. Usage of UI data outside of a zone is also exemplified.
-
-Video: [ofxAVUI](https://vimeo.com/160246379)
 
 # Dependencies
 
