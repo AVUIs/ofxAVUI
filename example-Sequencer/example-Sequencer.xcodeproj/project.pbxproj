@@ -28,6 +28,8 @@
 		3ED152B31C8A006400591B31 /* ofxAVUIXYPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152A71C8A006400591B31 /* ofxAVUIXYPad.cpp */; };
 		3ED152B41C8A006400591B31 /* ofxAVUIVisualBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152AA1C8A006400591B31 /* ofxAVUIVisualBase.cpp */; };
 		3ED152B51C8A006400591B31 /* ofxAVUIVisualWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */; };
+		BC16013B1E4233D300523F53 /* ofxAVUIEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC1601371E4233D300523F53 /* ofxAVUIEvents.cpp */; };
+		BC16013C1E4233D300523F53 /* ofxAVUIZoneSequencer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC1601391E4233D300523F53 /* ofxAVUIZoneSequencer.cpp */; };
 		BC7D96941C8EE34200467FEF /* ofxAVUIVisualCircles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC7D96921C8EE34200467FEF /* ofxAVUIVisualCircles.cpp */; };
 		BCBC33801C8E1CD1001A035E /* ofxAVUIVisualBars.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BCBC337E1C8E1CD1001A035E /* ofxAVUIVisualBars.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -111,6 +113,10 @@
 		3ED152AB1C8A006400591B31 /* ofxAVUIVisualBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualBase.h; sourceTree = "<group>"; };
 		3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualWave.cpp; sourceTree = "<group>"; };
 		3ED152AD1C8A006400591B31 /* ofxAVUIVisualWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualWave.h; sourceTree = "<group>"; };
+		BC1601371E4233D300523F53 /* ofxAVUIEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIEvents.cpp; sourceTree = "<group>"; };
+		BC1601381E4233D300523F53 /* ofxAVUIEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIEvents.h; sourceTree = "<group>"; };
+		BC1601391E4233D300523F53 /* ofxAVUIZoneSequencer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIZoneSequencer.cpp; sourceTree = "<group>"; };
+		BC16013A1E4233D300523F53 /* ofxAVUIZoneSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIZoneSequencer.h; sourceTree = "<group>"; };
 		BC7D96921C8EE34200467FEF /* ofxAVUIVisualCircles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualCircles.cpp; sourceTree = "<group>"; };
 		BC7D96931C8EE34200467FEF /* ofxAVUIVisualCircles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualCircles.h; sourceTree = "<group>"; };
 		BCBC337E1C8E1CD1001A035E /* ofxAVUIVisualBars.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualBars.cpp; sourceTree = "<group>"; };
@@ -197,6 +203,10 @@
 				3EBC7A8E1C84559E0074E549 /* ofxAVUIZone.h */,
 				3ED1527C1C89FFE300591B31 /* ofxAVUIZonePlayer.cpp */,
 				3ED1527D1C89FFE300591B31 /* ofxAVUIZonePlayer.h */,
+				BC1601371E4233D300523F53 /* ofxAVUIEvents.cpp */,
+				BC1601381E4233D300523F53 /* ofxAVUIEvents.h */,
+				BC1601391E4233D300523F53 /* ofxAVUIZoneSequencer.cpp */,
+				BC16013A1E4233D300523F53 /* ofxAVUIZoneSequencer.h */,
 				3ED152751C89FFE300591B31 /* audio */,
 				3ED152A91C8A006400591B31 /* visual */,
 				3ED1529C1C8A006400591B31 /* UI */,
@@ -387,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ED152AF1C8A006400591B31 /* ofxAVUIButton.cpp in Sources */,
+				BC16013B1E4233D300523F53 /* ofxAVUIEvents.cpp in Sources */,
 				3ED152B11C8A006400591B31 /* ofxAVUISlider.cpp in Sources */,
 				3ED152921C89FFE300591B31 /* ofxAVUISoundFxFilter.cpp in Sources */,
 				3ED152B41C8A006400591B31 /* ofxAVUIVisualBase.cpp in Sources */,
@@ -411,6 +422,7 @@
 				3EBC7A6F1C8450B10074E549 /* maxiGrains.cpp in Sources */,
 				3ED152B01C8A006400591B31 /* ofxAVUIEmpty.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				BC16013C1E4233D300523F53 /* ofxAVUIZoneSequencer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

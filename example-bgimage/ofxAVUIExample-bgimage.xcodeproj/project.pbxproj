@@ -31,6 +31,8 @@
 		3ED152B31C8A006400591B31 /* ofxAVUIXYPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152A71C8A006400591B31 /* ofxAVUIXYPad.cpp */; };
 		3ED152B41C8A006400591B31 /* ofxAVUIVisualBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152AA1C8A006400591B31 /* ofxAVUIVisualBase.cpp */; };
 		3ED152B51C8A006400591B31 /* ofxAVUIVisualWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */; };
+		BC16011F1E42316500523F53 /* ofxAVUIEvents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC16011B1E42316500523F53 /* ofxAVUIEvents.cpp */; };
+		BC1601201E42316500523F53 /* ofxAVUIZoneSequencer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC16011D1E42316500523F53 /* ofxAVUIZoneSequencer.cpp */; };
 		BC2BDC651C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC2BDC631C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp */; };
 		BC2BDC681C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC2BDC661C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp */; };
 		BC7D96941C8EE34200467FEF /* ofxAVUIVisualCircles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC7D96921C8EE34200467FEF /* ofxAVUIVisualCircles.cpp */; };
@@ -122,6 +124,10 @@
 		3ED152AB1C8A006400591B31 /* ofxAVUIVisualBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualBase.h; sourceTree = "<group>"; };
 		3ED152AC1C8A006400591B31 /* ofxAVUIVisualWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualWave.cpp; sourceTree = "<group>"; };
 		3ED152AD1C8A006400591B31 /* ofxAVUIVisualWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualWave.h; sourceTree = "<group>"; };
+		BC16011B1E42316500523F53 /* ofxAVUIEvents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIEvents.cpp; sourceTree = "<group>"; };
+		BC16011C1E42316500523F53 /* ofxAVUIEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIEvents.h; sourceTree = "<group>"; };
+		BC16011D1E42316500523F53 /* ofxAVUIZoneSequencer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIZoneSequencer.cpp; sourceTree = "<group>"; };
+		BC16011E1E42316500523F53 /* ofxAVUIZoneSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIZoneSequencer.h; sourceTree = "<group>"; };
 		BC2BDC631C94A54F000FB4F5 /* ofxAVUIVisualImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIVisualImage.cpp; sourceTree = "<group>"; };
 		BC2BDC641C94A54F000FB4F5 /* ofxAVUIVisualImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxAVUIVisualImage.h; sourceTree = "<group>"; };
 		BC2BDC661C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAVUIXYCanvas.cpp; sourceTree = "<group>"; };
@@ -212,6 +218,10 @@
 				3EBC7A8E1C84559E0074E549 /* ofxAVUIZone.h */,
 				3ED1527C1C89FFE300591B31 /* ofxAVUIZonePlayer.cpp */,
 				3ED1527D1C89FFE300591B31 /* ofxAVUIZonePlayer.h */,
+				BC16011B1E42316500523F53 /* ofxAVUIEvents.cpp */,
+				BC16011C1E42316500523F53 /* ofxAVUIEvents.h */,
+				BC16011D1E42316500523F53 /* ofxAVUIZoneSequencer.cpp */,
+				BC16011E1E42316500523F53 /* ofxAVUIZoneSequencer.h */,
 				3ED152751C89FFE300591B31 /* audio */,
 				3ED152A91C8A006400591B31 /* visual */,
 				3ED1529C1C8A006400591B31 /* UI */,
@@ -414,6 +424,7 @@
 				3ED152AF1C8A006400591B31 /* ofxAVUIButton.cpp in Sources */,
 				3ED152B11C8A006400591B31 /* ofxAVUISlider.cpp in Sources */,
 				3ED152921C89FFE300591B31 /* ofxAVUISoundFxFilter.cpp in Sources */,
+				BC16011F1E42316500523F53 /* ofxAVUIEvents.cpp in Sources */,
 				BC2BDC681C94A565000FB4F5 /* ofxAVUIXYCanvas.cpp in Sources */,
 				3ED152B41C8A006400591B31 /* ofxAVUIVisualBase.cpp in Sources */,
 				3ED152911C89FFE300591B31 /* ofxAVUISoundFxDelay.cpp in Sources */,
@@ -428,6 +439,7 @@
 				3ED152901C89FFE300591B31 /* ofxAVUISoundFxBase.cpp in Sources */,
 				BCBC33801C8E1CD1001A035E /* ofxAVUIVisualBars.cpp in Sources */,
 				3EA775D91C948E07007EB610 /* ofxAVUIVisualLissajous.cpp in Sources */,
+				BC1601201E42316500523F53 /* ofxAVUIZoneSequencer.cpp in Sources */,
 				3EBC7A6C1C8450B10074E549 /* maxiAtoms.cpp in Sources */,
 				3EBC7A6D1C8450B10074E549 /* maxiBark.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
